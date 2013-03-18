@@ -752,9 +752,10 @@ class LibraryJvmModelInferrer extends AbstractModelInferrer {
 	}	
 	def protected int addOneToCommandNumber()
 	{
+		
 		numberOfCommand = numberOfCommand +1
 		return numberOfCommand
-	}	  			
+	}	 			
 }
    				
    				
