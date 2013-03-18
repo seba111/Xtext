@@ -1,0 +1,71 @@
+grammar org.xtext.library.Library with org.eclipse.xtext.xbase.Xbase
+
+generate library "http://www.xtext.org/library/Library"
+
+
+//Parser rules----------
+
+Model:
+	commands += Command*
+;
+	
+Command: 
+	 Borrow | Add | Return | Remove | Check | Search | Show | AddAuthor
+
+;
+
+Search:
+	ByYear | ByAuthor
+;
+
+AddAuthor:
+	isbn=ISBN '+' author=Author
+;
+
+ByYear:
+	'Search' 'book' 'by' 'year' year=YEAR
+;
+
+ByAuthor:
+	'Search' 'book' 'by' 'author' author=Author 	
+;
+
+Borrow:
+	'Borrow' 'book' isbn=ISBN		
+;
+
+Add:
+	'Add' 'book' isbn=ISBN ',' title=STRING ',' year=YEAR
+	'written' 'by' authors+=Author (',' autors+=Author)* 
+;
+
+Remove:
+	'Remove' 'book' isbn=ISBN 
+;
+
+Return:
+	'Return' 'book' isbn=ISBN
+;
+
+Check:
+	'Check' 'book' 'status' isbn=ISBN
+;
+	
+Author:
+	firstname=STRING secondname=STRING
+;
+Show:
+	'Show' 'all' what=WHAT
+;
+
+
+//Terminal rules---------
+
+terminal YEAR: ('1'|'2')('0'..'9')('0'..'9')('0'..'9');
+
+//ISBN 9780-12-345678-9
+
+terminal ISBN: (('0'..'9')+ '-')* ('0'..'9')+ ;
+terminal WHAT: 'authors'|'books';
+
+

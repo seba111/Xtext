@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.xtext.library/src-gen" editDirectory="/org.xtext.library.edit/src"
+    editorDirectory="/org.xtext.library.editor/src" modelPluginID="org.xtext.library"
+    forceOverwrite="true" modelName="Library" updateClasspath="false" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    complianceLevel="5.0" copyrightFields="false" editPluginID="org.xtext.library.edit"
+    editorPluginID="org.xtext.library.editor" runtimeVersion="2.8">
+  <genPackages prefix="Library" basePackage="org.xtext.library" disposableProviderFactory="true"
+      ecorePackage="Library.ecore#/">
+    <genClasses ecoreClass="Library.ecore#//Model">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Library.ecore#//Model/commands"/>
+    </genClasses>
+    <genClasses ecoreClass="Library.ecore#//Command"/>
+    <genClasses ecoreClass="Library.ecore#//Search"/>
+    <genClasses ecoreClass="Library.ecore#//AddAuthor">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Library.ecore#//AddAuthor/isbn"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Library.ecore#//AddAuthor/author"/>
+    </genClasses>
+    <genClasses ecoreClass="Library.ecore#//ByYear">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Library.ecore#//ByYear/year"/>
+    </genClasses>
+    <genClasses ecoreClass="Library.ecore#//ByAuthor">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Library.ecore#//ByAuthor/author"/>
+    </genClasses>
+    <genClasses ecoreClass="Library.ecore#//Borrow">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Library.ecore#//Borrow/isbn"/>
+    </genClasses>
+    <genClasses ecoreClass="Library.ecore#//Add">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Library.ecore#//Add/isbn"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Library.ecore#//Add/title"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Library.ecore#//Add/year"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Library.ecore#//Add/authors"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Library.ecore#//Add/autors"/>
+    </genClasses>
+    <genClasses ecoreClass="Library.ecore#//Remove">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Library.ecore#//Remove/isbn"/>
+    </genClasses>
+    <genClasses ecoreClass="Library.ecore#//Return">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Library.ecore#//Return/isbn"/>
+    </genClasses>
+    <genClasses ecoreClass="Library.ecore#//Check">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Library.ecore#//Check/isbn"/>
+    </genClasses>
+    <genClasses ecoreClass="Library.ecore#//Author">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Library.ecore#//Author/firstname"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Library.ecore#//Author/secondname"/>
+    </genClasses>
+    <genClasses ecoreClass="Library.ecore#//Show">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Library.ecore#//Show/what"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>
