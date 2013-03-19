@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><templates>
+<template 
+	id="MANUALLYADDED_ID1" 
+	autoinsert="true" 
+	context="org.xtext.library.Library.Borrow" 
+	deleted="false" 
+	description="Wstaw szablon wypożyczenia książki" 
+	enabled="true" 
+	name="Borrow">Borrow book ${isbn}</template>
+<template 
+	id="MANUALLYADDED_ID2" 
+	autoinsert="true" 
+	context="org.xtext.library.Library.Check" 
+	deleted="false" 
+	description="Wstaw szablon sprawdzenia statusu książki" 
+	enabled="true" 
+	name="Check">Check book status ${isbn}</template>
+<template 
+	id="MANUALLYADDED_ID3" 
+	autoinsert="true" 
+	context="org.xtext.library.Library.Return" 
+	deleted="false" 
+	description="Wstaw szablon zwracania książki" 
+	enabled="true" 
+	name="Return">Return book ${isbn}</template>
+<template 
+	id="MANUALLYADDED_ID4" 
+	autoinsert="true" 
+	context="org.xtext.library.Library.Search" 
+	deleted="false" 
+	description="Wstaw szablon wyszukiwani po określonym autorze" 
+	enabled="true" 
+	name="SearchByAuthor">Search book by author ${firstname}  ${secondname}</template>
+<template 
+	id="MANUALLYADDED_ID5" 
+	autoinsert="true" 
+	context="org.xtext.library.Library.Search" 
+	deleted="false" 
+	description="Wstaw szablon wyszukiwania po określonym roku" 
+	enabled="true" 
+	name="SearchByYear">Search book by year ${year}</template>
+<template 
+	id="MANUALLYADDED_ID6" 
+	autoinsert="true" 
+	context="org.xtext.library.Library.Add" 
+	deleted="false" 
+	description="Wstaw szablon dodawania książki" 
+	enabled="true" 
+	name="Add">Add book ${isbn}, ${title}, ${year} written by ${firstname} ${secondname}</template>
+</templates>
+	
