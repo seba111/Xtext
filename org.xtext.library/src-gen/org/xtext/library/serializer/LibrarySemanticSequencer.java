@@ -52,16 +52,18 @@ import org.eclipse.xtext.xtype.XFunctionTypeRef;
 import org.eclipse.xtext.xtype.XtypePackage;
 import org.xtext.library.library.Add;
 import org.xtext.library.library.AddAuthor;
+import org.xtext.library.library.AddUser;
 import org.xtext.library.library.Author;
-import org.xtext.library.library.Borrow;
 import org.xtext.library.library.ByAuthor;
 import org.xtext.library.library.ByYear;
 import org.xtext.library.library.Check;
+import org.xtext.library.library.Lend;
 import org.xtext.library.library.LibraryPackage;
 import org.xtext.library.library.Model;
 import org.xtext.library.library.Remove;
 import org.xtext.library.library.Return;
 import org.xtext.library.library.Show;
+import org.xtext.library.library.ShowUserAccount;
 import org.xtext.library.services.LibraryGrammarAccess;
 
 @SuppressWarnings("all")
@@ -86,16 +88,16 @@ public class LibrarySemanticSequencer extends XbaseSemanticSequencer {
 					return; 
 				}
 				else break;
-			case LibraryPackage.AUTHOR:
-				if(context == grammarAccess.getAuthorRule()) {
-					sequence_Author(context, (Author) semanticObject); 
+			case LibraryPackage.ADD_USER:
+				if(context == grammarAccess.getAddUserRule() ||
+				   context == grammarAccess.getCommandRule()) {
+					sequence_AddUser(context, (AddUser) semanticObject); 
 					return; 
 				}
 				else break;
-			case LibraryPackage.BORROW:
-				if(context == grammarAccess.getBorrowRule() ||
-				   context == grammarAccess.getCommandRule()) {
-					sequence_Borrow(context, (Borrow) semanticObject); 
+			case LibraryPackage.AUTHOR:
+				if(context == grammarAccess.getAuthorRule()) {
+					sequence_Author(context, (Author) semanticObject); 
 					return; 
 				}
 				else break;
@@ -119,6 +121,13 @@ public class LibrarySemanticSequencer extends XbaseSemanticSequencer {
 				if(context == grammarAccess.getCheckRule() ||
 				   context == grammarAccess.getCommandRule()) {
 					sequence_Check(context, (Check) semanticObject); 
+					return; 
+				}
+				else break;
+			case LibraryPackage.LEND:
+				if(context == grammarAccess.getCommandRule() ||
+				   context == grammarAccess.getLendRule()) {
+					sequence_Lend(context, (Lend) semanticObject); 
 					return; 
 				}
 				else break;
@@ -146,6 +155,13 @@ public class LibrarySemanticSequencer extends XbaseSemanticSequencer {
 				if(context == grammarAccess.getCommandRule() ||
 				   context == grammarAccess.getShowRule()) {
 					sequence_Show(context, (Show) semanticObject); 
+					return; 
+				}
+				else break;
+			case LibraryPackage.SHOW_USER_ACCOUNT:
+				if(context == grammarAccess.getCommandRule() ||
+				   context == grammarAccess.getShowUserAccountRule()) {
+					sequence_ShowUserAccount(context, (ShowUserAccount) semanticObject); 
 					return; 
 				}
 				else break;
@@ -1030,6 +1046,28 @@ public class LibrarySemanticSequencer extends XbaseSemanticSequencer {
 	
 	/**
 	 * Constraint:
+	 *     (firstname=STRING secondname=STRING age=YEAR)
+	 */
+	protected void sequence_AddUser(EObject context, AddUser semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, LibraryPackage.Literals.ADD_USER__FIRSTNAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, LibraryPackage.Literals.ADD_USER__FIRSTNAME));
+			if(transientValues.isValueTransient(semanticObject, LibraryPackage.Literals.ADD_USER__SECONDNAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, LibraryPackage.Literals.ADD_USER__SECONDNAME));
+			if(transientValues.isValueTransient(semanticObject, LibraryPackage.Literals.ADD_USER__AGE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, LibraryPackage.Literals.ADD_USER__AGE));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getAddUserAccess().getFirstnameSTRINGTerminalRuleCall_2_0(), semanticObject.getFirstname());
+		feeder.accept(grammarAccess.getAddUserAccess().getSecondnameSTRINGTerminalRuleCall_3_0(), semanticObject.getSecondname());
+		feeder.accept(grammarAccess.getAddUserAccess().getAgeYEARTerminalRuleCall_4_0(), semanticObject.getAge());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Constraint:
 	 *     (isbn=ISBN title=STRING year=YEAR authors+=Author autors+=Author*)
 	 */
 	protected void sequence_Add(EObject context, Add semanticObject) {
@@ -1052,22 +1090,6 @@ public class LibrarySemanticSequencer extends XbaseSemanticSequencer {
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
 		feeder.accept(grammarAccess.getAuthorAccess().getFirstnameSTRINGTerminalRuleCall_0_0(), semanticObject.getFirstname());
 		feeder.accept(grammarAccess.getAuthorAccess().getSecondnameSTRINGTerminalRuleCall_1_0(), semanticObject.getSecondname());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Constraint:
-	 *     isbn=ISBN
-	 */
-	protected void sequence_Borrow(EObject context, Borrow semanticObject) {
-		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, LibraryPackage.Literals.BORROW__ISBN) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, LibraryPackage.Literals.BORROW__ISBN));
-		}
-		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
-		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getBorrowAccess().getIsbnISBNTerminalRuleCall_2_0(), semanticObject.getIsbn());
 		feeder.finish();
 	}
 	
@@ -1122,6 +1144,28 @@ public class LibrarySemanticSequencer extends XbaseSemanticSequencer {
 	
 	/**
 	 * Constraint:
+	 *     (isbn=ISBN firstname=STRING secondname=STRING)
+	 */
+	protected void sequence_Lend(EObject context, Lend semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, LibraryPackage.Literals.LEND__ISBN) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, LibraryPackage.Literals.LEND__ISBN));
+			if(transientValues.isValueTransient(semanticObject, LibraryPackage.Literals.LEND__FIRSTNAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, LibraryPackage.Literals.LEND__FIRSTNAME));
+			if(transientValues.isValueTransient(semanticObject, LibraryPackage.Literals.LEND__SECONDNAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, LibraryPackage.Literals.LEND__SECONDNAME));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getLendAccess().getIsbnISBNTerminalRuleCall_2_0(), semanticObject.getIsbn());
+		feeder.accept(grammarAccess.getLendAccess().getFirstnameSTRINGTerminalRuleCall_4_0(), semanticObject.getFirstname());
+		feeder.accept(grammarAccess.getLendAccess().getSecondnameSTRINGTerminalRuleCall_5_0(), semanticObject.getSecondname());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Constraint:
 	 *     commands+=Command*
 	 */
 	protected void sequence_Model(EObject context, Model semanticObject) {
@@ -1147,16 +1191,41 @@ public class LibrarySemanticSequencer extends XbaseSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     isbn=ISBN
+	 *     (isbn=ISBN firstname=STRING secondname=STRING)
 	 */
 	protected void sequence_Return(EObject context, Return semanticObject) {
 		if(errorAcceptor != null) {
 			if(transientValues.isValueTransient(semanticObject, LibraryPackage.Literals.RETURN__ISBN) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, LibraryPackage.Literals.RETURN__ISBN));
+			if(transientValues.isValueTransient(semanticObject, LibraryPackage.Literals.RETURN__FIRSTNAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, LibraryPackage.Literals.RETURN__FIRSTNAME));
+			if(transientValues.isValueTransient(semanticObject, LibraryPackage.Literals.RETURN__SECONDNAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, LibraryPackage.Literals.RETURN__SECONDNAME));
 		}
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
 		feeder.accept(grammarAccess.getReturnAccess().getIsbnISBNTerminalRuleCall_2_0(), semanticObject.getIsbn());
+		feeder.accept(grammarAccess.getReturnAccess().getFirstnameSTRINGTerminalRuleCall_4_0(), semanticObject.getFirstname());
+		feeder.accept(grammarAccess.getReturnAccess().getSecondnameSTRINGTerminalRuleCall_5_0(), semanticObject.getSecondname());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (firstname=STRING secondname=STRING)
+	 */
+	protected void sequence_ShowUserAccount(EObject context, ShowUserAccount semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, LibraryPackage.Literals.SHOW_USER_ACCOUNT__FIRSTNAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, LibraryPackage.Literals.SHOW_USER_ACCOUNT__FIRSTNAME));
+			if(transientValues.isValueTransient(semanticObject, LibraryPackage.Literals.SHOW_USER_ACCOUNT__SECONDNAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, LibraryPackage.Literals.SHOW_USER_ACCOUNT__SECONDNAME));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getShowUserAccountAccess().getFirstnameSTRINGTerminalRuleCall_3_0(), semanticObject.getFirstname());
+		feeder.accept(grammarAccess.getShowUserAccountAccess().getSecondnameSTRINGTerminalRuleCall_4_0(), semanticObject.getSecondname());
 		feeder.finish();
 	}
 	

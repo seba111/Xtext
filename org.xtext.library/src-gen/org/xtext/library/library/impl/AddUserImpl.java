@@ -8,46 +8,26 @@ import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.xtext.library.library.AddUser;
 import org.xtext.library.library.LibraryPackage;
-import org.xtext.library.library.Return;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Return</b></em>'.
+ * An implementation of the model object '<em><b>Add User</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.xtext.library.library.impl.ReturnImpl#getIsbn <em>Isbn</em>}</li>
- *   <li>{@link org.xtext.library.library.impl.ReturnImpl#getFirstname <em>Firstname</em>}</li>
- *   <li>{@link org.xtext.library.library.impl.ReturnImpl#getSecondname <em>Secondname</em>}</li>
+ *   <li>{@link org.xtext.library.library.impl.AddUserImpl#getFirstname <em>Firstname</em>}</li>
+ *   <li>{@link org.xtext.library.library.impl.AddUserImpl#getSecondname <em>Secondname</em>}</li>
+ *   <li>{@link org.xtext.library.library.impl.AddUserImpl#getAge <em>Age</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class ReturnImpl extends CommandImpl implements Return
+public class AddUserImpl extends CommandImpl implements AddUser
 {
-  /**
-   * The default value of the '{@link #getIsbn() <em>Isbn</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getIsbn()
-   * @generated
-   * @ordered
-   */
-  protected static final String ISBN_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getIsbn() <em>Isbn</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getIsbn()
-   * @generated
-   * @ordered
-   */
-  protected String isbn = ISBN_EDEFAULT;
-
   /**
    * The default value of the '{@link #getFirstname() <em>Firstname</em>}' attribute.
    * <!-- begin-user-doc -->
@@ -89,11 +69,31 @@ public class ReturnImpl extends CommandImpl implements Return
   protected String secondname = SECONDNAME_EDEFAULT;
 
   /**
+   * The default value of the '{@link #getAge() <em>Age</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getAge()
+   * @generated
+   * @ordered
+   */
+  protected static final String AGE_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getAge() <em>Age</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getAge()
+   * @generated
+   * @ordered
+   */
+  protected String age = AGE_EDEFAULT;
+
+  /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected ReturnImpl()
+  protected AddUserImpl()
   {
     super();
   }
@@ -106,30 +106,7 @@ public class ReturnImpl extends CommandImpl implements Return
   @Override
   protected EClass eStaticClass()
   {
-    return LibraryPackage.Literals.RETURN;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public String getIsbn()
-  {
-    return isbn;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setIsbn(String newIsbn)
-  {
-    String oldIsbn = isbn;
-    isbn = newIsbn;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, LibraryPackage.RETURN__ISBN, oldIsbn, isbn));
+    return LibraryPackage.Literals.ADD_USER;
   }
 
   /**
@@ -152,7 +129,7 @@ public class ReturnImpl extends CommandImpl implements Return
     String oldFirstname = firstname;
     firstname = newFirstname;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, LibraryPackage.RETURN__FIRSTNAME, oldFirstname, firstname));
+      eNotify(new ENotificationImpl(this, Notification.SET, LibraryPackage.ADD_USER__FIRSTNAME, oldFirstname, firstname));
   }
 
   /**
@@ -175,7 +152,30 @@ public class ReturnImpl extends CommandImpl implements Return
     String oldSecondname = secondname;
     secondname = newSecondname;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, LibraryPackage.RETURN__SECONDNAME, oldSecondname, secondname));
+      eNotify(new ENotificationImpl(this, Notification.SET, LibraryPackage.ADD_USER__SECONDNAME, oldSecondname, secondname));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getAge()
+  {
+    return age;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setAge(String newAge)
+  {
+    String oldAge = age;
+    age = newAge;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, LibraryPackage.ADD_USER__AGE, oldAge, age));
   }
 
   /**
@@ -188,12 +188,12 @@ public class ReturnImpl extends CommandImpl implements Return
   {
     switch (featureID)
     {
-      case LibraryPackage.RETURN__ISBN:
-        return getIsbn();
-      case LibraryPackage.RETURN__FIRSTNAME:
+      case LibraryPackage.ADD_USER__FIRSTNAME:
         return getFirstname();
-      case LibraryPackage.RETURN__SECONDNAME:
+      case LibraryPackage.ADD_USER__SECONDNAME:
         return getSecondname();
+      case LibraryPackage.ADD_USER__AGE:
+        return getAge();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -208,14 +208,14 @@ public class ReturnImpl extends CommandImpl implements Return
   {
     switch (featureID)
     {
-      case LibraryPackage.RETURN__ISBN:
-        setIsbn((String)newValue);
-        return;
-      case LibraryPackage.RETURN__FIRSTNAME:
+      case LibraryPackage.ADD_USER__FIRSTNAME:
         setFirstname((String)newValue);
         return;
-      case LibraryPackage.RETURN__SECONDNAME:
+      case LibraryPackage.ADD_USER__SECONDNAME:
         setSecondname((String)newValue);
+        return;
+      case LibraryPackage.ADD_USER__AGE:
+        setAge((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -231,14 +231,14 @@ public class ReturnImpl extends CommandImpl implements Return
   {
     switch (featureID)
     {
-      case LibraryPackage.RETURN__ISBN:
-        setIsbn(ISBN_EDEFAULT);
-        return;
-      case LibraryPackage.RETURN__FIRSTNAME:
+      case LibraryPackage.ADD_USER__FIRSTNAME:
         setFirstname(FIRSTNAME_EDEFAULT);
         return;
-      case LibraryPackage.RETURN__SECONDNAME:
+      case LibraryPackage.ADD_USER__SECONDNAME:
         setSecondname(SECONDNAME_EDEFAULT);
+        return;
+      case LibraryPackage.ADD_USER__AGE:
+        setAge(AGE_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -254,12 +254,12 @@ public class ReturnImpl extends CommandImpl implements Return
   {
     switch (featureID)
     {
-      case LibraryPackage.RETURN__ISBN:
-        return ISBN_EDEFAULT == null ? isbn != null : !ISBN_EDEFAULT.equals(isbn);
-      case LibraryPackage.RETURN__FIRSTNAME:
+      case LibraryPackage.ADD_USER__FIRSTNAME:
         return FIRSTNAME_EDEFAULT == null ? firstname != null : !FIRSTNAME_EDEFAULT.equals(firstname);
-      case LibraryPackage.RETURN__SECONDNAME:
+      case LibraryPackage.ADD_USER__SECONDNAME:
         return SECONDNAME_EDEFAULT == null ? secondname != null : !SECONDNAME_EDEFAULT.equals(secondname);
+      case LibraryPackage.ADD_USER__AGE:
+        return AGE_EDEFAULT == null ? age != null : !AGE_EDEFAULT.equals(age);
     }
     return super.eIsSet(featureID);
   }
@@ -275,14 +275,14 @@ public class ReturnImpl extends CommandImpl implements Return
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (isbn: ");
-    result.append(isbn);
-    result.append(", firstname: ");
+    result.append(" (firstname: ");
     result.append(firstname);
     result.append(", secondname: ");
     result.append(secondname);
+    result.append(", age: ");
+    result.append(age);
     result.append(')');
     return result.toString();
   }
 
-} //ReturnImpl
+} //AddUserImpl

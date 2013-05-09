@@ -11,12 +11,13 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import org.xtext.library.library.Add;
 import org.xtext.library.library.AddAuthor;
+import org.xtext.library.library.AddUser;
 import org.xtext.library.library.Author;
-import org.xtext.library.library.Borrow;
 import org.xtext.library.library.ByAuthor;
 import org.xtext.library.library.ByYear;
 import org.xtext.library.library.Check;
 import org.xtext.library.library.Command;
+import org.xtext.library.library.Lend;
 import org.xtext.library.library.LibraryFactory;
 import org.xtext.library.library.LibraryPackage;
 import org.xtext.library.library.Model;
@@ -24,6 +25,7 @@ import org.xtext.library.library.Remove;
 import org.xtext.library.library.Return;
 import org.xtext.library.library.Search;
 import org.xtext.library.library.Show;
+import org.xtext.library.library.ShowUserAccount;
 
 /**
  * <!-- begin-user-doc -->
@@ -80,7 +82,7 @@ public class LibraryPackageImpl extends EPackageImpl implements LibraryPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass borrowEClass = null;
+  private EClass lendEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -88,6 +90,13 @@ public class LibraryPackageImpl extends EPackageImpl implements LibraryPackage
    * @generated
    */
   private EClass addEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass addUserEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -123,6 +132,13 @@ public class LibraryPackageImpl extends EPackageImpl implements LibraryPackage
    * @generated
    */
   private EClass showEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass showUserAccountEClass = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with
@@ -302,9 +318,9 @@ public class LibraryPackageImpl extends EPackageImpl implements LibraryPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getBorrow()
+  public EClass getLend()
   {
-    return borrowEClass;
+    return lendEClass;
   }
 
   /**
@@ -312,9 +328,29 @@ public class LibraryPackageImpl extends EPackageImpl implements LibraryPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getBorrow_Isbn()
+  public EAttribute getLend_Isbn()
   {
-    return (EAttribute)borrowEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)lendEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getLend_Firstname()
+  {
+    return (EAttribute)lendEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getLend_Secondname()
+  {
+    return (EAttribute)lendEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -382,6 +418,46 @@ public class LibraryPackageImpl extends EPackageImpl implements LibraryPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EClass getAddUser()
+  {
+    return addUserEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getAddUser_Firstname()
+  {
+    return (EAttribute)addUserEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getAddUser_Secondname()
+  {
+    return (EAttribute)addUserEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getAddUser_Age()
+  {
+    return (EAttribute)addUserEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getRemove()
   {
     return removeEClass;
@@ -415,6 +491,26 @@ public class LibraryPackageImpl extends EPackageImpl implements LibraryPackage
   public EAttribute getReturn_Isbn()
   {
     return (EAttribute)returnEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getReturn_Firstname()
+  {
+    return (EAttribute)returnEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getReturn_Secondname()
+  {
+    return (EAttribute)returnEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -492,6 +588,36 @@ public class LibraryPackageImpl extends EPackageImpl implements LibraryPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EClass getShowUserAccount()
+  {
+    return showUserAccountEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getShowUserAccount_Firstname()
+  {
+    return (EAttribute)showUserAccountEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getShowUserAccount_Secondname()
+  {
+    return (EAttribute)showUserAccountEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public LibraryFactory getLibraryFactory()
   {
     return (LibraryFactory)getEFactoryInstance();
@@ -534,8 +660,10 @@ public class LibraryPackageImpl extends EPackageImpl implements LibraryPackage
     byAuthorEClass = createEClass(BY_AUTHOR);
     createEReference(byAuthorEClass, BY_AUTHOR__AUTHOR);
 
-    borrowEClass = createEClass(BORROW);
-    createEAttribute(borrowEClass, BORROW__ISBN);
+    lendEClass = createEClass(LEND);
+    createEAttribute(lendEClass, LEND__ISBN);
+    createEAttribute(lendEClass, LEND__FIRSTNAME);
+    createEAttribute(lendEClass, LEND__SECONDNAME);
 
     addEClass = createEClass(ADD);
     createEAttribute(addEClass, ADD__ISBN);
@@ -544,11 +672,18 @@ public class LibraryPackageImpl extends EPackageImpl implements LibraryPackage
     createEReference(addEClass, ADD__AUTHORS);
     createEReference(addEClass, ADD__AUTORS);
 
+    addUserEClass = createEClass(ADD_USER);
+    createEAttribute(addUserEClass, ADD_USER__FIRSTNAME);
+    createEAttribute(addUserEClass, ADD_USER__SECONDNAME);
+    createEAttribute(addUserEClass, ADD_USER__AGE);
+
     removeEClass = createEClass(REMOVE);
     createEAttribute(removeEClass, REMOVE__ISBN);
 
     returnEClass = createEClass(RETURN);
     createEAttribute(returnEClass, RETURN__ISBN);
+    createEAttribute(returnEClass, RETURN__FIRSTNAME);
+    createEAttribute(returnEClass, RETURN__SECONDNAME);
 
     checkEClass = createEClass(CHECK);
     createEAttribute(checkEClass, CHECK__ISBN);
@@ -559,6 +694,10 @@ public class LibraryPackageImpl extends EPackageImpl implements LibraryPackage
 
     showEClass = createEClass(SHOW);
     createEAttribute(showEClass, SHOW__WHAT);
+
+    showUserAccountEClass = createEClass(SHOW_USER_ACCOUNT);
+    createEAttribute(showUserAccountEClass, SHOW_USER_ACCOUNT__FIRSTNAME);
+    createEAttribute(showUserAccountEClass, SHOW_USER_ACCOUNT__SECONDNAME);
   }
 
   /**
@@ -594,12 +733,14 @@ public class LibraryPackageImpl extends EPackageImpl implements LibraryPackage
     addAuthorEClass.getESuperTypes().add(this.getCommand());
     byYearEClass.getESuperTypes().add(this.getSearch());
     byAuthorEClass.getESuperTypes().add(this.getSearch());
-    borrowEClass.getESuperTypes().add(this.getCommand());
+    lendEClass.getESuperTypes().add(this.getCommand());
     addEClass.getESuperTypes().add(this.getCommand());
+    addUserEClass.getESuperTypes().add(this.getCommand());
     removeEClass.getESuperTypes().add(this.getCommand());
     returnEClass.getESuperTypes().add(this.getCommand());
     checkEClass.getESuperTypes().add(this.getCommand());
     showEClass.getESuperTypes().add(this.getCommand());
+    showUserAccountEClass.getESuperTypes().add(this.getCommand());
 
     // Initialize classes and features; add operations and parameters
     initEClass(modelEClass, Model.class, "Model", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -619,8 +760,10 @@ public class LibraryPackageImpl extends EPackageImpl implements LibraryPackage
     initEClass(byAuthorEClass, ByAuthor.class, "ByAuthor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getByAuthor_Author(), this.getAuthor(), null, "author", null, 0, 1, ByAuthor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(borrowEClass, Borrow.class, "Borrow", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getBorrow_Isbn(), ecorePackage.getEString(), "isbn", null, 0, 1, Borrow.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(lendEClass, Lend.class, "Lend", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getLend_Isbn(), ecorePackage.getEString(), "isbn", null, 0, 1, Lend.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getLend_Firstname(), ecorePackage.getEString(), "firstname", null, 0, 1, Lend.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getLend_Secondname(), ecorePackage.getEString(), "secondname", null, 0, 1, Lend.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(addEClass, Add.class, "Add", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getAdd_Isbn(), ecorePackage.getEString(), "isbn", null, 0, 1, Add.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -629,11 +772,18 @@ public class LibraryPackageImpl extends EPackageImpl implements LibraryPackage
     initEReference(getAdd_Authors(), this.getAuthor(), null, "authors", null, 0, -1, Add.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getAdd_Autors(), this.getAuthor(), null, "autors", null, 0, -1, Add.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+    initEClass(addUserEClass, AddUser.class, "AddUser", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getAddUser_Firstname(), ecorePackage.getEString(), "firstname", null, 0, 1, AddUser.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getAddUser_Secondname(), ecorePackage.getEString(), "secondname", null, 0, 1, AddUser.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getAddUser_Age(), ecorePackage.getEString(), "age", null, 0, 1, AddUser.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
     initEClass(removeEClass, Remove.class, "Remove", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getRemove_Isbn(), ecorePackage.getEString(), "isbn", null, 0, 1, Remove.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(returnEClass, Return.class, "Return", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getReturn_Isbn(), ecorePackage.getEString(), "isbn", null, 0, 1, Return.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getReturn_Firstname(), ecorePackage.getEString(), "firstname", null, 0, 1, Return.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getReturn_Secondname(), ecorePackage.getEString(), "secondname", null, 0, 1, Return.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(checkEClass, Check.class, "Check", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getCheck_Isbn(), ecorePackage.getEString(), "isbn", null, 0, 1, Check.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -644,6 +794,10 @@ public class LibraryPackageImpl extends EPackageImpl implements LibraryPackage
 
     initEClass(showEClass, Show.class, "Show", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getShow_What(), ecorePackage.getEString(), "what", null, 0, 1, Show.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(showUserAccountEClass, ShowUserAccount.class, "ShowUserAccount", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getShowUserAccount_Firstname(), ecorePackage.getEString(), "firstname", null, 0, 1, ShowUserAccount.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getShowUserAccount_Secondname(), ecorePackage.getEString(), "secondname", null, 0, 1, ShowUserAccount.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Create resource
     createResource(eNS_URI);

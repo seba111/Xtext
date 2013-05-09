@@ -105,14 +105,19 @@ public class LibraryAdapterFactory extends AdapterFactoryImpl
         return createByAuthorAdapter();
       }
       @Override
-      public Adapter caseBorrow(Borrow object)
+      public Adapter caseLend(Lend object)
       {
-        return createBorrowAdapter();
+        return createLendAdapter();
       }
       @Override
       public Adapter caseAdd(Add object)
       {
         return createAddAdapter();
+      }
+      @Override
+      public Adapter caseAddUser(AddUser object)
+      {
+        return createAddUserAdapter();
       }
       @Override
       public Adapter caseRemove(Remove object)
@@ -138,6 +143,11 @@ public class LibraryAdapterFactory extends AdapterFactoryImpl
       public Adapter caseShow(Show object)
       {
         return createShowAdapter();
+      }
+      @Override
+      public Adapter caseShowUserAccount(ShowUserAccount object)
+      {
+        return createShowUserAccountAdapter();
       }
       @Override
       public Adapter defaultCase(EObject object)
@@ -252,16 +262,16 @@ public class LibraryAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.xtext.library.library.Borrow <em>Borrow</em>}'.
+   * Creates a new adapter for an object of class '{@link org.xtext.library.library.Lend <em>Lend</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.xtext.library.library.Borrow
+   * @see org.xtext.library.library.Lend
    * @generated
    */
-  public Adapter createBorrowAdapter()
+  public Adapter createLendAdapter()
   {
     return null;
   }
@@ -277,6 +287,21 @@ public class LibraryAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createAddAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.library.library.AddUser <em>Add User</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.library.library.AddUser
+   * @generated
+   */
+  public Adapter createAddUserAdapter()
   {
     return null;
   }
@@ -352,6 +377,21 @@ public class LibraryAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createShowAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.library.library.ShowUserAccount <em>Show User Account</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.library.library.ShowUserAccount
+   * @generated
+   */
+  public Adapter createShowUserAccountAdapter()
   {
     return null;
   }

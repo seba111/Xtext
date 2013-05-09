@@ -5,23 +5,23 @@ package org.xtext.library.library;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Return</b></em>'.
+ * A representation of the model object '<em><b>Lend</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.xtext.library.library.Return#getIsbn <em>Isbn</em>}</li>
- *   <li>{@link org.xtext.library.library.Return#getFirstname <em>Firstname</em>}</li>
- *   <li>{@link org.xtext.library.library.Return#getSecondname <em>Secondname</em>}</li>
+ *   <li>{@link org.xtext.library.library.Lend#getIsbn <em>Isbn</em>}</li>
+ *   <li>{@link org.xtext.library.library.Lend#getFirstname <em>Firstname</em>}</li>
+ *   <li>{@link org.xtext.library.library.Lend#getSecondname <em>Secondname</em>}</li>
  * </ul>
  * </p>
  *
- * @see org.xtext.library.library.LibraryPackage#getReturn()
+ * @see org.xtext.library.library.LibraryPackage#getLend()
  * @model
  * @generated
  */
-public interface Return extends Command
+public interface Lend extends Command
 {
   /**
    * Returns the value of the '<em><b>Isbn</b></em>' attribute.
@@ -33,14 +33,14 @@ public interface Return extends Command
    * <!-- end-user-doc -->
    * @return the value of the '<em>Isbn</em>' attribute.
    * @see #setIsbn(String)
-   * @see org.xtext.library.library.LibraryPackage#getReturn_Isbn()
+   * @see org.xtext.library.library.LibraryPackage#getLend_Isbn()
    * @model
    * @generated
    */
   String getIsbn();
 
   /**
-   * Sets the value of the '{@link org.xtext.library.library.Return#getIsbn <em>Isbn</em>}' attribute.
+   * Sets the value of the '{@link org.xtext.library.library.Lend#getIsbn <em>Isbn</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Isbn</em>' attribute.
@@ -59,14 +59,14 @@ public interface Return extends Command
    * <!-- end-user-doc -->
    * @return the value of the '<em>Firstname</em>' attribute.
    * @see #setFirstname(String)
-   * @see org.xtext.library.library.LibraryPackage#getReturn_Firstname()
+   * @see org.xtext.library.library.LibraryPackage#getLend_Firstname()
    * @model
    * @generated
    */
   String getFirstname();
 
   /**
-   * Sets the value of the '{@link org.xtext.library.library.Return#getFirstname <em>Firstname</em>}' attribute.
+   * Sets the value of the '{@link org.xtext.library.library.Lend#getFirstname <em>Firstname</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Firstname</em>' attribute.
@@ -85,14 +85,14 @@ public interface Return extends Command
    * <!-- end-user-doc -->
    * @return the value of the '<em>Secondname</em>' attribute.
    * @see #setSecondname(String)
-   * @see org.xtext.library.library.LibraryPackage#getReturn_Secondname()
+   * @see org.xtext.library.library.LibraryPackage#getLend_Secondname()
    * @model
    * @generated
    */
   String getSecondname();
 
   /**
-   * Sets the value of the '{@link org.xtext.library.library.Return#getSecondname <em>Secondname</em>}' attribute.
+   * Sets the value of the '{@link org.xtext.library.library.Lend#getSecondname <em>Secondname</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Secondname</em>' attribute.
@@ -101,4 +101,4 @@ public interface Return extends Command
    */
   void setSecondname(String value);
 
-} // Return
+} // Lend

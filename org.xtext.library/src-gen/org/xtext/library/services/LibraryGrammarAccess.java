@@ -42,7 +42,7 @@ public class LibraryGrammarAccess extends AbstractGrammarElementFinder {
 	public class CommandElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Command");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final RuleCall cBorrowParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cLendParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
 		private final RuleCall cAddParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		private final RuleCall cReturnParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
 		private final RuleCall cRemoveParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
@@ -50,17 +50,19 @@ public class LibraryGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cSearchParserRuleCall_5 = (RuleCall)cAlternatives.eContents().get(5);
 		private final RuleCall cShowParserRuleCall_6 = (RuleCall)cAlternatives.eContents().get(6);
 		private final RuleCall cAddAuthorParserRuleCall_7 = (RuleCall)cAlternatives.eContents().get(7);
+		private final RuleCall cAddUserParserRuleCall_8 = (RuleCall)cAlternatives.eContents().get(8);
+		private final RuleCall cShowUserAccountParserRuleCall_9 = (RuleCall)cAlternatives.eContents().get(9);
 		
 		//Command:
 		//
-		//	Borrow | Add | Return | Remove | Check | Search | Show | AddAuthor;
+		//	Lend | Add | Return | Remove | Check | Search | Show | AddAuthor | AddUser | ShowUserAccount;
 		public ParserRule getRule() { return rule; }
 
-		//Borrow | Add | Return | Remove | Check | Search | Show | AddAuthor
+		//Lend | Add | Return | Remove | Check | Search | Show | AddAuthor | AddUser | ShowUserAccount
 		public Alternatives getAlternatives() { return cAlternatives; }
 
-		//Borrow
-		public RuleCall getBorrowParserRuleCall_0() { return cBorrowParserRuleCall_0; }
+		//Lend
+		public RuleCall getLendParserRuleCall_0() { return cLendParserRuleCall_0; }
 
 		//Add
 		public RuleCall getAddParserRuleCall_1() { return cAddParserRuleCall_1; }
@@ -82,6 +84,12 @@ public class LibraryGrammarAccess extends AbstractGrammarElementFinder {
 
 		//AddAuthor
 		public RuleCall getAddAuthorParserRuleCall_7() { return cAddAuthorParserRuleCall_7; }
+
+		//AddUser
+		public RuleCall getAddUserParserRuleCall_8() { return cAddUserParserRuleCall_8; }
+
+		//ShowUserAccount
+		public RuleCall getShowUserAccountParserRuleCall_9() { return cShowUserAccountParserRuleCall_9; }
 	}
 
 	public class SearchElements extends AbstractParserRuleElementFinder {
@@ -212,24 +220,29 @@ public class LibraryGrammarAccess extends AbstractGrammarElementFinder {
 		public RuleCall getAuthorAuthorParserRuleCall_4_0() { return cAuthorAuthorParserRuleCall_4_0; }
 	}
 
-	public class BorrowElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Borrow");
+	public class LendElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Lend");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cBorrowKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cLendKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Keyword cBookKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cIsbnAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cIsbnISBNTerminalRuleCall_2_0 = (RuleCall)cIsbnAssignment_2.eContents().get(0);
+		private final Keyword cToKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Assignment cFirstnameAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cFirstnameSTRINGTerminalRuleCall_4_0 = (RuleCall)cFirstnameAssignment_4.eContents().get(0);
+		private final Assignment cSecondnameAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final RuleCall cSecondnameSTRINGTerminalRuleCall_5_0 = (RuleCall)cSecondnameAssignment_5.eContents().get(0);
 		
-		//Borrow:
+		//Lend:
 		//
-		//	"Borrow" "book" isbn=ISBN;
+		//	"Lend" "book" isbn=ISBN "to" firstname=STRING secondname=STRING;
 		public ParserRule getRule() { return rule; }
 
-		//"Borrow" "book" isbn=ISBN
+		//"Lend" "book" isbn=ISBN "to" firstname=STRING secondname=STRING
 		public Group getGroup() { return cGroup; }
 
-		//"Borrow"
-		public Keyword getBorrowKeyword_0() { return cBorrowKeyword_0; }
+		//"Lend"
+		public Keyword getLendKeyword_0() { return cLendKeyword_0; }
 
 		//"book"
 		public Keyword getBookKeyword_1() { return cBookKeyword_1; }
@@ -239,6 +252,21 @@ public class LibraryGrammarAccess extends AbstractGrammarElementFinder {
 
 		//ISBN
 		public RuleCall getIsbnISBNTerminalRuleCall_2_0() { return cIsbnISBNTerminalRuleCall_2_0; }
+
+		//"to"
+		public Keyword getToKeyword_3() { return cToKeyword_3; }
+
+		//firstname=STRING
+		public Assignment getFirstnameAssignment_4() { return cFirstnameAssignment_4; }
+
+		//STRING
+		public RuleCall getFirstnameSTRINGTerminalRuleCall_4_0() { return cFirstnameSTRINGTerminalRuleCall_4_0; }
+
+		//secondname=STRING
+		public Assignment getSecondnameAssignment_5() { return cSecondnameAssignment_5; }
+
+		//STRING
+		public RuleCall getSecondnameSTRINGTerminalRuleCall_5_0() { return cSecondnameSTRINGTerminalRuleCall_5_0; }
 	}
 
 	public class AddElements extends AbstractParserRuleElementFinder {
@@ -326,6 +354,51 @@ public class LibraryGrammarAccess extends AbstractGrammarElementFinder {
 		public RuleCall getAutorsAuthorParserRuleCall_10_1_0() { return cAutorsAuthorParserRuleCall_10_1_0; }
 	}
 
+	public class AddUserElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "AddUser");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cAddKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cUserKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cFirstnameAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cFirstnameSTRINGTerminalRuleCall_2_0 = (RuleCall)cFirstnameAssignment_2.eContents().get(0);
+		private final Assignment cSecondnameAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cSecondnameSTRINGTerminalRuleCall_3_0 = (RuleCall)cSecondnameAssignment_3.eContents().get(0);
+		private final Assignment cAgeAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cAgeYEARTerminalRuleCall_4_0 = (RuleCall)cAgeAssignment_4.eContents().get(0);
+		
+		//AddUser:
+		//
+		//	"Add" "user" firstname=STRING secondname=STRING age=YEAR;
+		public ParserRule getRule() { return rule; }
+
+		//"Add" "user" firstname=STRING secondname=STRING age=YEAR
+		public Group getGroup() { return cGroup; }
+
+		//"Add"
+		public Keyword getAddKeyword_0() { return cAddKeyword_0; }
+
+		//"user"
+		public Keyword getUserKeyword_1() { return cUserKeyword_1; }
+
+		//firstname=STRING
+		public Assignment getFirstnameAssignment_2() { return cFirstnameAssignment_2; }
+
+		//STRING
+		public RuleCall getFirstnameSTRINGTerminalRuleCall_2_0() { return cFirstnameSTRINGTerminalRuleCall_2_0; }
+
+		//secondname=STRING
+		public Assignment getSecondnameAssignment_3() { return cSecondnameAssignment_3; }
+
+		//STRING
+		public RuleCall getSecondnameSTRINGTerminalRuleCall_3_0() { return cSecondnameSTRINGTerminalRuleCall_3_0; }
+
+		//age=YEAR
+		public Assignment getAgeAssignment_4() { return cAgeAssignment_4; }
+
+		//YEAR
+		public RuleCall getAgeYEARTerminalRuleCall_4_0() { return cAgeYEARTerminalRuleCall_4_0; }
+	}
+
 	public class RemoveElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Remove");
 		private final Group cGroup = (Group)rule.eContents().get(1);
@@ -362,13 +435,18 @@ public class LibraryGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cBookKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cIsbnAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cIsbnISBNTerminalRuleCall_2_0 = (RuleCall)cIsbnAssignment_2.eContents().get(0);
+		private final Keyword cFromKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Assignment cFirstnameAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cFirstnameSTRINGTerminalRuleCall_4_0 = (RuleCall)cFirstnameAssignment_4.eContents().get(0);
+		private final Assignment cSecondnameAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final RuleCall cSecondnameSTRINGTerminalRuleCall_5_0 = (RuleCall)cSecondnameAssignment_5.eContents().get(0);
 		
 		//Return:
 		//
-		//	"Return" "book" isbn=ISBN;
+		//	"Return" "book" isbn=ISBN "from" firstname=STRING secondname=STRING;
 		public ParserRule getRule() { return rule; }
 
-		//"Return" "book" isbn=ISBN
+		//"Return" "book" isbn=ISBN "from" firstname=STRING secondname=STRING
 		public Group getGroup() { return cGroup; }
 
 		//"Return"
@@ -382,6 +460,21 @@ public class LibraryGrammarAccess extends AbstractGrammarElementFinder {
 
 		//ISBN
 		public RuleCall getIsbnISBNTerminalRuleCall_2_0() { return cIsbnISBNTerminalRuleCall_2_0; }
+
+		//"from"
+		public Keyword getFromKeyword_3() { return cFromKeyword_3; }
+
+		//firstname=STRING
+		public Assignment getFirstnameAssignment_4() { return cFirstnameAssignment_4; }
+
+		//STRING
+		public RuleCall getFirstnameSTRINGTerminalRuleCall_4_0() { return cFirstnameSTRINGTerminalRuleCall_4_0; }
+
+		//secondname=STRING
+		public Assignment getSecondnameAssignment_5() { return cSecondnameAssignment_5; }
+
+		//STRING
+		public RuleCall getSecondnameSTRINGTerminalRuleCall_5_0() { return cSecondnameSTRINGTerminalRuleCall_5_0; }
 	}
 
 	public class CheckElements extends AbstractParserRuleElementFinder {
@@ -474,6 +567,47 @@ public class LibraryGrammarAccess extends AbstractGrammarElementFinder {
 		//WHAT
 		public RuleCall getWhatWHATTerminalRuleCall_2_0() { return cWhatWHATTerminalRuleCall_2_0; }
 	}
+
+	public class ShowUserAccountElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "ShowUserAccount");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cShowKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cUserKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Keyword cAccountKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cFirstnameAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cFirstnameSTRINGTerminalRuleCall_3_0 = (RuleCall)cFirstnameAssignment_3.eContents().get(0);
+		private final Assignment cSecondnameAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cSecondnameSTRINGTerminalRuleCall_4_0 = (RuleCall)cSecondnameAssignment_4.eContents().get(0);
+		
+		//ShowUserAccount:
+		//
+		//	"Show" "user" "account" firstname=STRING secondname=STRING;
+		public ParserRule getRule() { return rule; }
+
+		//"Show" "user" "account" firstname=STRING secondname=STRING
+		public Group getGroup() { return cGroup; }
+
+		//"Show"
+		public Keyword getShowKeyword_0() { return cShowKeyword_0; }
+
+		//"user"
+		public Keyword getUserKeyword_1() { return cUserKeyword_1; }
+
+		//"account"
+		public Keyword getAccountKeyword_2() { return cAccountKeyword_2; }
+
+		//firstname=STRING
+		public Assignment getFirstnameAssignment_3() { return cFirstnameAssignment_3; }
+
+		//STRING
+		public RuleCall getFirstnameSTRINGTerminalRuleCall_3_0() { return cFirstnameSTRINGTerminalRuleCall_3_0; }
+
+		//secondname=STRING
+		public Assignment getSecondnameAssignment_4() { return cSecondnameAssignment_4; }
+
+		//STRING
+		public RuleCall getSecondnameSTRINGTerminalRuleCall_4_0() { return cSecondnameSTRINGTerminalRuleCall_4_0; }
+	}
 	
 	
 	private ModelElements pModel;
@@ -482,13 +616,15 @@ public class LibraryGrammarAccess extends AbstractGrammarElementFinder {
 	private AddAuthorElements pAddAuthor;
 	private ByYearElements pByYear;
 	private ByAuthorElements pByAuthor;
-	private BorrowElements pBorrow;
+	private LendElements pLend;
 	private AddElements pAdd;
+	private AddUserElements pAddUser;
 	private RemoveElements pRemove;
 	private ReturnElements pReturn;
 	private CheckElements pCheck;
 	private AuthorElements pAuthor;
 	private ShowElements pShow;
+	private ShowUserAccountElements pShowUserAccount;
 	private TerminalRule tYEAR;
 	private TerminalRule tISBN;
 	private TerminalRule tWHAT;
@@ -546,7 +682,7 @@ public class LibraryGrammarAccess extends AbstractGrammarElementFinder {
 
 	//Command:
 	//
-	//	Borrow | Add | Return | Remove | Check | Search | Show | AddAuthor;
+	//	Lend | Add | Return | Remove | Check | Search | Show | AddAuthor | AddUser | ShowUserAccount;
 	public CommandElements getCommandAccess() {
 		return (pCommand != null) ? pCommand : (pCommand = new CommandElements());
 	}
@@ -599,15 +735,15 @@ public class LibraryGrammarAccess extends AbstractGrammarElementFinder {
 		return getByAuthorAccess().getRule();
 	}
 
-	//Borrow:
+	//Lend:
 	//
-	//	"Borrow" "book" isbn=ISBN;
-	public BorrowElements getBorrowAccess() {
-		return (pBorrow != null) ? pBorrow : (pBorrow = new BorrowElements());
+	//	"Lend" "book" isbn=ISBN "to" firstname=STRING secondname=STRING;
+	public LendElements getLendAccess() {
+		return (pLend != null) ? pLend : (pLend = new LendElements());
 	}
 	
-	public ParserRule getBorrowRule() {
-		return getBorrowAccess().getRule();
+	public ParserRule getLendRule() {
+		return getLendAccess().getRule();
 	}
 
 	//Add:
@@ -619,6 +755,17 @@ public class LibraryGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getAddRule() {
 		return getAddAccess().getRule();
+	}
+
+	//AddUser:
+	//
+	//	"Add" "user" firstname=STRING secondname=STRING age=YEAR;
+	public AddUserElements getAddUserAccess() {
+		return (pAddUser != null) ? pAddUser : (pAddUser = new AddUserElements());
+	}
+	
+	public ParserRule getAddUserRule() {
+		return getAddUserAccess().getRule();
 	}
 
 	//Remove:
@@ -634,7 +781,7 @@ public class LibraryGrammarAccess extends AbstractGrammarElementFinder {
 
 	//Return:
 	//
-	//	"Return" "book" isbn=ISBN;
+	//	"Return" "book" isbn=ISBN "from" firstname=STRING secondname=STRING;
 	public ReturnElements getReturnAccess() {
 		return (pReturn != null) ? pReturn : (pReturn = new ReturnElements());
 	}
@@ -674,6 +821,17 @@ public class LibraryGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getShowRule() {
 		return getShowAccess().getRule();
+	}
+
+	//ShowUserAccount:
+	//
+	//	"Show" "user" "account" firstname=STRING secondname=STRING;
+	public ShowUserAccountElements getShowUserAccountAccess() {
+		return (pShowUserAccount != null) ? pShowUserAccount : (pShowUserAccount = new ShowUserAccountElements());
+	}
+	
+	public ParserRule getShowUserAccountRule() {
+		return getShowUserAccountAccess().getRule();
 	}
 
 	////Terminal rules---------

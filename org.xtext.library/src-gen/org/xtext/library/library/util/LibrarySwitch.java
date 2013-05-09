@@ -120,11 +120,11 @@ public class LibrarySwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case LibraryPackage.BORROW:
+      case LibraryPackage.LEND:
       {
-        Borrow borrow = (Borrow)theEObject;
-        T result = caseBorrow(borrow);
-        if (result == null) result = caseCommand(borrow);
+        Lend lend = (Lend)theEObject;
+        T result = caseLend(lend);
+        if (result == null) result = caseCommand(lend);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -133,6 +133,14 @@ public class LibrarySwitch<T> extends Switch<T>
         Add add = (Add)theEObject;
         T result = caseAdd(add);
         if (result == null) result = caseCommand(add);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case LibraryPackage.ADD_USER:
+      {
+        AddUser addUser = (AddUser)theEObject;
+        T result = caseAddUser(addUser);
+        if (result == null) result = caseCommand(addUser);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -172,6 +180,14 @@ public class LibrarySwitch<T> extends Switch<T>
         Show show = (Show)theEObject;
         T result = caseShow(show);
         if (result == null) result = caseCommand(show);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case LibraryPackage.SHOW_USER_ACCOUNT:
+      {
+        ShowUserAccount showUserAccount = (ShowUserAccount)theEObject;
+        T result = caseShowUserAccount(showUserAccount);
+        if (result == null) result = caseCommand(showUserAccount);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -276,17 +292,17 @@ public class LibrarySwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Borrow</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Lend</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Borrow</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Lend</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseBorrow(Borrow object)
+  public T caseLend(Lend object)
   {
     return null;
   }
@@ -303,6 +319,22 @@ public class LibrarySwitch<T> extends Switch<T>
    * @generated
    */
   public T caseAdd(Add object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Add User</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Add User</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseAddUser(AddUser object)
   {
     return null;
   }
@@ -383,6 +415,22 @@ public class LibrarySwitch<T> extends Switch<T>
    * @generated
    */
   public T caseShow(Show object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Show User Account</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Show User Account</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseShowUserAccount(ShowUserAccount object)
   {
     return null;
   }

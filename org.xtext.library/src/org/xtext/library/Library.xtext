@@ -10,7 +10,7 @@ Model:
 ;
 	
 Command: 
-	 Borrow | Add | Return | Remove | Check | Search | Show | AddAuthor
+	 Lend | Add | Return | Remove | Check | Search | Show | AddAuthor | AddUser | ShowUserAccount
 
 ;
 
@@ -29,14 +29,16 @@ ByYear:
 ByAuthor:
 	'Search' 'book' 'by' 'author' author=Author 	
 ;
-
-Borrow:
-	'Borrow' 'book' isbn=ISBN		
+Lend:
+	'Lend' 'book' isbn=ISBN 'to' firstname=STRING secondname=STRING		
 ;
 
 Add:
 	'Add' 'book' isbn=ISBN ',' title=STRING ',' year=YEAR
 	'written' 'by' authors+=Author (',' autors+=Author)* 
+;
+AddUser:
+	'Add' 'user' firstname=STRING secondname=STRING age=YEAR
 ;
 
 Remove:
@@ -44,7 +46,7 @@ Remove:
 ;
 
 Return:
-	'Return' 'book' isbn=ISBN
+	'Return' 'book' isbn=ISBN 'from' firstname=STRING secondname=STRING
 ;
 
 Check:
@@ -54,9 +56,14 @@ Check:
 Author:
 	firstname=STRING secondname=STRING
 ;
+
 Show:
 	'Show' 'all' what=WHAT
 ;
+ShowUserAccount:
+	'Show' 'user' 'account' firstname=STRING secondname=STRING
+;
+
 
 
 //Terminal rules---------

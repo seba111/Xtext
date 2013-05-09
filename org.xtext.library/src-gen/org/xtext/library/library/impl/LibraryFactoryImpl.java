@@ -70,13 +70,15 @@ public class LibraryFactoryImpl extends EFactoryImpl implements LibraryFactory
       case LibraryPackage.ADD_AUTHOR: return createAddAuthor();
       case LibraryPackage.BY_YEAR: return createByYear();
       case LibraryPackage.BY_AUTHOR: return createByAuthor();
-      case LibraryPackage.BORROW: return createBorrow();
+      case LibraryPackage.LEND: return createLend();
       case LibraryPackage.ADD: return createAdd();
+      case LibraryPackage.ADD_USER: return createAddUser();
       case LibraryPackage.REMOVE: return createRemove();
       case LibraryPackage.RETURN: return createReturn();
       case LibraryPackage.CHECK: return createCheck();
       case LibraryPackage.AUTHOR: return createAuthor();
       case LibraryPackage.SHOW: return createShow();
+      case LibraryPackage.SHOW_USER_ACCOUNT: return createShowUserAccount();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -153,10 +155,10 @@ public class LibraryFactoryImpl extends EFactoryImpl implements LibraryFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Borrow createBorrow()
+  public Lend createLend()
   {
-    BorrowImpl borrow = new BorrowImpl();
-    return borrow;
+    LendImpl lend = new LendImpl();
+    return lend;
   }
 
   /**
@@ -168,6 +170,17 @@ public class LibraryFactoryImpl extends EFactoryImpl implements LibraryFactory
   {
     AddImpl add = new AddImpl();
     return add;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public AddUser createAddUser()
+  {
+    AddUserImpl addUser = new AddUserImpl();
+    return addUser;
   }
 
   /**
@@ -223,6 +236,17 @@ public class LibraryFactoryImpl extends EFactoryImpl implements LibraryFactory
   {
     ShowImpl show = new ShowImpl();
     return show;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ShowUserAccount createShowUserAccount()
+  {
+    ShowUserAccountImpl showUserAccount = new ShowUserAccountImpl();
+    return showUserAccount;
   }
 
   /**

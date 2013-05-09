@@ -8,25 +8,25 @@ import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.xtext.library.library.Lend;
 import org.xtext.library.library.LibraryPackage;
-import org.xtext.library.library.Return;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Return</b></em>'.
+ * An implementation of the model object '<em><b>Lend</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.xtext.library.library.impl.ReturnImpl#getIsbn <em>Isbn</em>}</li>
- *   <li>{@link org.xtext.library.library.impl.ReturnImpl#getFirstname <em>Firstname</em>}</li>
- *   <li>{@link org.xtext.library.library.impl.ReturnImpl#getSecondname <em>Secondname</em>}</li>
+ *   <li>{@link org.xtext.library.library.impl.LendImpl#getIsbn <em>Isbn</em>}</li>
+ *   <li>{@link org.xtext.library.library.impl.LendImpl#getFirstname <em>Firstname</em>}</li>
+ *   <li>{@link org.xtext.library.library.impl.LendImpl#getSecondname <em>Secondname</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class ReturnImpl extends CommandImpl implements Return
+public class LendImpl extends CommandImpl implements Lend
 {
   /**
    * The default value of the '{@link #getIsbn() <em>Isbn</em>}' attribute.
@@ -93,7 +93,7 @@ public class ReturnImpl extends CommandImpl implements Return
    * <!-- end-user-doc -->
    * @generated
    */
-  protected ReturnImpl()
+  protected LendImpl()
   {
     super();
   }
@@ -106,7 +106,7 @@ public class ReturnImpl extends CommandImpl implements Return
   @Override
   protected EClass eStaticClass()
   {
-    return LibraryPackage.Literals.RETURN;
+    return LibraryPackage.Literals.LEND;
   }
 
   /**
@@ -129,7 +129,7 @@ public class ReturnImpl extends CommandImpl implements Return
     String oldIsbn = isbn;
     isbn = newIsbn;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, LibraryPackage.RETURN__ISBN, oldIsbn, isbn));
+      eNotify(new ENotificationImpl(this, Notification.SET, LibraryPackage.LEND__ISBN, oldIsbn, isbn));
   }
 
   /**
@@ -152,7 +152,7 @@ public class ReturnImpl extends CommandImpl implements Return
     String oldFirstname = firstname;
     firstname = newFirstname;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, LibraryPackage.RETURN__FIRSTNAME, oldFirstname, firstname));
+      eNotify(new ENotificationImpl(this, Notification.SET, LibraryPackage.LEND__FIRSTNAME, oldFirstname, firstname));
   }
 
   /**
@@ -175,7 +175,7 @@ public class ReturnImpl extends CommandImpl implements Return
     String oldSecondname = secondname;
     secondname = newSecondname;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, LibraryPackage.RETURN__SECONDNAME, oldSecondname, secondname));
+      eNotify(new ENotificationImpl(this, Notification.SET, LibraryPackage.LEND__SECONDNAME, oldSecondname, secondname));
   }
 
   /**
@@ -188,11 +188,11 @@ public class ReturnImpl extends CommandImpl implements Return
   {
     switch (featureID)
     {
-      case LibraryPackage.RETURN__ISBN:
+      case LibraryPackage.LEND__ISBN:
         return getIsbn();
-      case LibraryPackage.RETURN__FIRSTNAME:
+      case LibraryPackage.LEND__FIRSTNAME:
         return getFirstname();
-      case LibraryPackage.RETURN__SECONDNAME:
+      case LibraryPackage.LEND__SECONDNAME:
         return getSecondname();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -208,13 +208,13 @@ public class ReturnImpl extends CommandImpl implements Return
   {
     switch (featureID)
     {
-      case LibraryPackage.RETURN__ISBN:
+      case LibraryPackage.LEND__ISBN:
         setIsbn((String)newValue);
         return;
-      case LibraryPackage.RETURN__FIRSTNAME:
+      case LibraryPackage.LEND__FIRSTNAME:
         setFirstname((String)newValue);
         return;
-      case LibraryPackage.RETURN__SECONDNAME:
+      case LibraryPackage.LEND__SECONDNAME:
         setSecondname((String)newValue);
         return;
     }
@@ -231,13 +231,13 @@ public class ReturnImpl extends CommandImpl implements Return
   {
     switch (featureID)
     {
-      case LibraryPackage.RETURN__ISBN:
+      case LibraryPackage.LEND__ISBN:
         setIsbn(ISBN_EDEFAULT);
         return;
-      case LibraryPackage.RETURN__FIRSTNAME:
+      case LibraryPackage.LEND__FIRSTNAME:
         setFirstname(FIRSTNAME_EDEFAULT);
         return;
-      case LibraryPackage.RETURN__SECONDNAME:
+      case LibraryPackage.LEND__SECONDNAME:
         setSecondname(SECONDNAME_EDEFAULT);
         return;
     }
@@ -254,11 +254,11 @@ public class ReturnImpl extends CommandImpl implements Return
   {
     switch (featureID)
     {
-      case LibraryPackage.RETURN__ISBN:
+      case LibraryPackage.LEND__ISBN:
         return ISBN_EDEFAULT == null ? isbn != null : !ISBN_EDEFAULT.equals(isbn);
-      case LibraryPackage.RETURN__FIRSTNAME:
+      case LibraryPackage.LEND__FIRSTNAME:
         return FIRSTNAME_EDEFAULT == null ? firstname != null : !FIRSTNAME_EDEFAULT.equals(firstname);
-      case LibraryPackage.RETURN__SECONDNAME:
+      case LibraryPackage.LEND__SECONDNAME:
         return SECONDNAME_EDEFAULT == null ? secondname != null : !SECONDNAME_EDEFAULT.equals(secondname);
     }
     return super.eIsSet(featureID);
@@ -285,4 +285,4 @@ public class ReturnImpl extends CommandImpl implements Return
     return result.toString();
   }
 
-} //ReturnImpl
+} //LendImpl

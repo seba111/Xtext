@@ -19,12 +19,14 @@
       <alternatives xsi:type="xtext:Alternatives">
         <elements xsi:type="xtext:RuleCall" rule="/0/@rules.6"/>
         <elements xsi:type="xtext:RuleCall" rule="/0/@rules.7"/>
-        <elements xsi:type="xtext:RuleCall" rule="/0/@rules.9"/>
-        <elements xsi:type="xtext:RuleCall" rule="/0/@rules.8"/>
         <elements xsi:type="xtext:RuleCall" rule="/0/@rules.10"/>
+        <elements xsi:type="xtext:RuleCall" rule="/0/@rules.9"/>
+        <elements xsi:type="xtext:RuleCall" rule="/0/@rules.11"/>
         <elements xsi:type="xtext:RuleCall" rule="/0/@rules.2"/>
-        <elements xsi:type="xtext:RuleCall" rule="/0/@rules.12"/>
+        <elements xsi:type="xtext:RuleCall" rule="/0/@rules.13"/>
         <elements xsi:type="xtext:RuleCall" rule="/0/@rules.3"/>
+        <elements xsi:type="xtext:RuleCall" rule="/0/@rules.8"/>
+        <elements xsi:type="xtext:RuleCall" rule="/0/@rules.14"/>
       </alternatives>
     </rules>
     <rules xsi:type="xtext:ParserRule" name="Search">
@@ -42,11 +44,11 @@
       </type>
       <alternatives xsi:type="xtext:Group">
         <elements xsi:type="xtext:Assignment" feature="isbn" operator="=">
-          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.14"/>
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.16"/>
         </elements>
         <elements xsi:type="xtext:Keyword" value="+"/>
         <elements xsi:type="xtext:Assignment" feature="author" operator="=">
-          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.11"/>
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.12"/>
         </elements>
       </alternatives>
     </rules>
@@ -60,7 +62,7 @@
         <elements xsi:type="xtext:Keyword" value="by"/>
         <elements xsi:type="xtext:Keyword" value="year"/>
         <elements xsi:type="xtext:Assignment" feature="year" operator="=">
-          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.13"/>
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.15"/>
         </elements>
       </alternatives>
     </rules>
@@ -74,19 +76,26 @@
         <elements xsi:type="xtext:Keyword" value="by"/>
         <elements xsi:type="xtext:Keyword" value="author"/>
         <elements xsi:type="xtext:Assignment" feature="author" operator="=">
-          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.11"/>
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.12"/>
         </elements>
       </alternatives>
     </rules>
-    <rules xsi:type="xtext:ParserRule" name="Borrow">
+    <rules xsi:type="xtext:ParserRule" name="Lend">
       <type metamodel="/0/@metamodelDeclarations.0">
-        <classifier xsi:type="ecore:EClass" href="http://www.xtext.org/library/Library#//Borrow"/>
+        <classifier xsi:type="ecore:EClass" href="http://www.xtext.org/library/Library#//Lend"/>
       </type>
       <alternatives xsi:type="xtext:Group">
-        <elements xsi:type="xtext:Keyword" value="Borrow"/>
+        <elements xsi:type="xtext:Keyword" value="Lend"/>
         <elements xsi:type="xtext:Keyword" value="book"/>
         <elements xsi:type="xtext:Assignment" feature="isbn" operator="=">
-          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.14"/>
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.16"/>
+        </elements>
+        <elements xsi:type="xtext:Keyword" value="to"/>
+        <elements xsi:type="xtext:Assignment" feature="firstname" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="/2/@rules.12"/>
+        </elements>
+        <elements xsi:type="xtext:Assignment" feature="secondname" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="/2/@rules.12"/>
         </elements>
       </alternatives>
     </rules>
@@ -98,7 +107,7 @@
         <elements xsi:type="xtext:Keyword" value="Add"/>
         <elements xsi:type="xtext:Keyword" value="book"/>
         <elements xsi:type="xtext:Assignment" feature="isbn" operator="=">
-          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.14"/>
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.16"/>
         </elements>
         <elements xsi:type="xtext:Keyword" value=","/>
         <elements xsi:type="xtext:Assignment" feature="title" operator="=">
@@ -106,18 +115,36 @@
         </elements>
         <elements xsi:type="xtext:Keyword" value=","/>
         <elements xsi:type="xtext:Assignment" feature="year" operator="=">
-          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.13"/>
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.15"/>
         </elements>
         <elements xsi:type="xtext:Keyword" value="written"/>
         <elements xsi:type="xtext:Keyword" value="by"/>
         <elements xsi:type="xtext:Assignment" feature="authors" operator="+=">
-          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.11"/>
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.12"/>
         </elements>
         <elements xsi:type="xtext:Group" cardinality="*">
           <elements xsi:type="xtext:Keyword" value=","/>
           <elements xsi:type="xtext:Assignment" feature="autors" operator="+=">
-            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.11"/>
+            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.12"/>
           </elements>
+        </elements>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:ParserRule" name="AddUser">
+      <type metamodel="/0/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EClass" href="http://www.xtext.org/library/Library#//AddUser"/>
+      </type>
+      <alternatives xsi:type="xtext:Group">
+        <elements xsi:type="xtext:Keyword" value="Add"/>
+        <elements xsi:type="xtext:Keyword" value="user"/>
+        <elements xsi:type="xtext:Assignment" feature="firstname" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="/2/@rules.12"/>
+        </elements>
+        <elements xsi:type="xtext:Assignment" feature="secondname" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="/2/@rules.12"/>
+        </elements>
+        <elements xsi:type="xtext:Assignment" feature="age" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.15"/>
         </elements>
       </alternatives>
     </rules>
@@ -129,7 +156,7 @@
         <elements xsi:type="xtext:Keyword" value="Remove"/>
         <elements xsi:type="xtext:Keyword" value="book"/>
         <elements xsi:type="xtext:Assignment" feature="isbn" operator="=">
-          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.14"/>
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.16"/>
         </elements>
       </alternatives>
     </rules>
@@ -141,7 +168,14 @@
         <elements xsi:type="xtext:Keyword" value="Return"/>
         <elements xsi:type="xtext:Keyword" value="book"/>
         <elements xsi:type="xtext:Assignment" feature="isbn" operator="=">
-          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.14"/>
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.16"/>
+        </elements>
+        <elements xsi:type="xtext:Keyword" value="from"/>
+        <elements xsi:type="xtext:Assignment" feature="firstname" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="/2/@rules.12"/>
+        </elements>
+        <elements xsi:type="xtext:Assignment" feature="secondname" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="/2/@rules.12"/>
         </elements>
       </alternatives>
     </rules>
@@ -154,7 +188,7 @@
         <elements xsi:type="xtext:Keyword" value="book"/>
         <elements xsi:type="xtext:Keyword" value="status"/>
         <elements xsi:type="xtext:Assignment" feature="isbn" operator="=">
-          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.14"/>
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.16"/>
         </elements>
       </alternatives>
     </rules>
@@ -179,7 +213,23 @@
         <elements xsi:type="xtext:Keyword" value="Show"/>
         <elements xsi:type="xtext:Keyword" value="all"/>
         <elements xsi:type="xtext:Assignment" feature="what" operator="=">
-          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.15"/>
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.17"/>
+        </elements>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:ParserRule" name="ShowUserAccount">
+      <type metamodel="/0/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EClass" href="http://www.xtext.org/library/Library#//ShowUserAccount"/>
+      </type>
+      <alternatives xsi:type="xtext:Group">
+        <elements xsi:type="xtext:Keyword" value="Show"/>
+        <elements xsi:type="xtext:Keyword" value="user"/>
+        <elements xsi:type="xtext:Keyword" value="account"/>
+        <elements xsi:type="xtext:Assignment" feature="firstname" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="/2/@rules.12"/>
+        </elements>
+        <elements xsi:type="xtext:Assignment" feature="secondname" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="/2/@rules.12"/>
         </elements>
       </alternatives>
     </rules>

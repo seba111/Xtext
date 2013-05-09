@@ -77,13 +77,13 @@ public interface LibraryFactory extends EFactory
   ByAuthor createByAuthor();
 
   /**
-   * Returns a new object of class '<em>Borrow</em>'.
+   * Returns a new object of class '<em>Lend</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Borrow</em>'.
+   * @return a new object of class '<em>Lend</em>'.
    * @generated
    */
-  Borrow createBorrow();
+  Lend createLend();
 
   /**
    * Returns a new object of class '<em>Add</em>'.
@@ -93,6 +93,15 @@ public interface LibraryFactory extends EFactory
    * @generated
    */
   Add createAdd();
+
+  /**
+   * Returns a new object of class '<em>Add User</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Add User</em>'.
+   * @generated
+   */
+  AddUser createAddUser();
 
   /**
    * Returns a new object of class '<em>Remove</em>'.
@@ -138,6 +147,15 @@ public interface LibraryFactory extends EFactory
    * @generated
    */
   Show createShow();
+
+  /**
+   * Returns a new object of class '<em>Show User Account</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Show User Account</em>'.
+   * @generated
+   */
+  ShowUserAccount createShowUserAccount();
 
   /**
    * Returns the package supported by this factory.

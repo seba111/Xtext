@@ -9,45 +9,24 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.xtext.library.library.LibraryPackage;
-import org.xtext.library.library.Return;
+import org.xtext.library.library.ShowUserAccount;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Return</b></em>'.
+ * An implementation of the model object '<em><b>Show User Account</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.xtext.library.library.impl.ReturnImpl#getIsbn <em>Isbn</em>}</li>
- *   <li>{@link org.xtext.library.library.impl.ReturnImpl#getFirstname <em>Firstname</em>}</li>
- *   <li>{@link org.xtext.library.library.impl.ReturnImpl#getSecondname <em>Secondname</em>}</li>
+ *   <li>{@link org.xtext.library.library.impl.ShowUserAccountImpl#getFirstname <em>Firstname</em>}</li>
+ *   <li>{@link org.xtext.library.library.impl.ShowUserAccountImpl#getSecondname <em>Secondname</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class ReturnImpl extends CommandImpl implements Return
+public class ShowUserAccountImpl extends CommandImpl implements ShowUserAccount
 {
-  /**
-   * The default value of the '{@link #getIsbn() <em>Isbn</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getIsbn()
-   * @generated
-   * @ordered
-   */
-  protected static final String ISBN_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getIsbn() <em>Isbn</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getIsbn()
-   * @generated
-   * @ordered
-   */
-  protected String isbn = ISBN_EDEFAULT;
-
   /**
    * The default value of the '{@link #getFirstname() <em>Firstname</em>}' attribute.
    * <!-- begin-user-doc -->
@@ -93,7 +72,7 @@ public class ReturnImpl extends CommandImpl implements Return
    * <!-- end-user-doc -->
    * @generated
    */
-  protected ReturnImpl()
+  protected ShowUserAccountImpl()
   {
     super();
   }
@@ -106,30 +85,7 @@ public class ReturnImpl extends CommandImpl implements Return
   @Override
   protected EClass eStaticClass()
   {
-    return LibraryPackage.Literals.RETURN;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public String getIsbn()
-  {
-    return isbn;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setIsbn(String newIsbn)
-  {
-    String oldIsbn = isbn;
-    isbn = newIsbn;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, LibraryPackage.RETURN__ISBN, oldIsbn, isbn));
+    return LibraryPackage.Literals.SHOW_USER_ACCOUNT;
   }
 
   /**
@@ -152,7 +108,7 @@ public class ReturnImpl extends CommandImpl implements Return
     String oldFirstname = firstname;
     firstname = newFirstname;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, LibraryPackage.RETURN__FIRSTNAME, oldFirstname, firstname));
+      eNotify(new ENotificationImpl(this, Notification.SET, LibraryPackage.SHOW_USER_ACCOUNT__FIRSTNAME, oldFirstname, firstname));
   }
 
   /**
@@ -175,7 +131,7 @@ public class ReturnImpl extends CommandImpl implements Return
     String oldSecondname = secondname;
     secondname = newSecondname;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, LibraryPackage.RETURN__SECONDNAME, oldSecondname, secondname));
+      eNotify(new ENotificationImpl(this, Notification.SET, LibraryPackage.SHOW_USER_ACCOUNT__SECONDNAME, oldSecondname, secondname));
   }
 
   /**
@@ -188,11 +144,9 @@ public class ReturnImpl extends CommandImpl implements Return
   {
     switch (featureID)
     {
-      case LibraryPackage.RETURN__ISBN:
-        return getIsbn();
-      case LibraryPackage.RETURN__FIRSTNAME:
+      case LibraryPackage.SHOW_USER_ACCOUNT__FIRSTNAME:
         return getFirstname();
-      case LibraryPackage.RETURN__SECONDNAME:
+      case LibraryPackage.SHOW_USER_ACCOUNT__SECONDNAME:
         return getSecondname();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -208,13 +162,10 @@ public class ReturnImpl extends CommandImpl implements Return
   {
     switch (featureID)
     {
-      case LibraryPackage.RETURN__ISBN:
-        setIsbn((String)newValue);
-        return;
-      case LibraryPackage.RETURN__FIRSTNAME:
+      case LibraryPackage.SHOW_USER_ACCOUNT__FIRSTNAME:
         setFirstname((String)newValue);
         return;
-      case LibraryPackage.RETURN__SECONDNAME:
+      case LibraryPackage.SHOW_USER_ACCOUNT__SECONDNAME:
         setSecondname((String)newValue);
         return;
     }
@@ -231,13 +182,10 @@ public class ReturnImpl extends CommandImpl implements Return
   {
     switch (featureID)
     {
-      case LibraryPackage.RETURN__ISBN:
-        setIsbn(ISBN_EDEFAULT);
-        return;
-      case LibraryPackage.RETURN__FIRSTNAME:
+      case LibraryPackage.SHOW_USER_ACCOUNT__FIRSTNAME:
         setFirstname(FIRSTNAME_EDEFAULT);
         return;
-      case LibraryPackage.RETURN__SECONDNAME:
+      case LibraryPackage.SHOW_USER_ACCOUNT__SECONDNAME:
         setSecondname(SECONDNAME_EDEFAULT);
         return;
     }
@@ -254,11 +202,9 @@ public class ReturnImpl extends CommandImpl implements Return
   {
     switch (featureID)
     {
-      case LibraryPackage.RETURN__ISBN:
-        return ISBN_EDEFAULT == null ? isbn != null : !ISBN_EDEFAULT.equals(isbn);
-      case LibraryPackage.RETURN__FIRSTNAME:
+      case LibraryPackage.SHOW_USER_ACCOUNT__FIRSTNAME:
         return FIRSTNAME_EDEFAULT == null ? firstname != null : !FIRSTNAME_EDEFAULT.equals(firstname);
-      case LibraryPackage.RETURN__SECONDNAME:
+      case LibraryPackage.SHOW_USER_ACCOUNT__SECONDNAME:
         return SECONDNAME_EDEFAULT == null ? secondname != null : !SECONDNAME_EDEFAULT.equals(secondname);
     }
     return super.eIsSet(featureID);
@@ -275,9 +221,7 @@ public class ReturnImpl extends CommandImpl implements Return
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (isbn: ");
-    result.append(isbn);
-    result.append(", firstname: ");
+    result.append(" (firstname: ");
     result.append(firstname);
     result.append(", secondname: ");
     result.append(secondname);
@@ -285,4 +229,4 @@ public class ReturnImpl extends CommandImpl implements Return
     return result.toString();
   }
 
-} //ReturnImpl
+} //ShowUserAccountImpl

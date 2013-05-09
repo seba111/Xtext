@@ -118,11 +118,11 @@ ruleCommand returns [EObject current=null]
     @after { leaveRule(); }:
 (
     { 
-        newCompositeNode(grammarAccess.getCommandAccess().getBorrowParserRuleCall_0()); 
+        newCompositeNode(grammarAccess.getCommandAccess().getLendParserRuleCall_0()); 
     }
-    this_Borrow_0=ruleBorrow
+    this_Lend_0=ruleLend
     { 
-        $current = $this_Borrow_0.current; 
+        $current = $this_Lend_0.current; 
         afterParserOrEnumRuleCall();
     }
 
@@ -193,6 +193,26 @@ ruleCommand returns [EObject current=null]
     this_AddAuthor_7=ruleAddAuthor
     { 
         $current = $this_AddAuthor_7.current; 
+        afterParserOrEnumRuleCall();
+    }
+
+    |
+    { 
+        newCompositeNode(grammarAccess.getCommandAccess().getAddUserParserRuleCall_8()); 
+    }
+    this_AddUser_8=ruleAddUser
+    { 
+        $current = $this_AddUser_8.current; 
+        afterParserOrEnumRuleCall();
+    }
+
+    |
+    { 
+        newCompositeNode(grammarAccess.getCommandAccess().getShowUserAccountParserRuleCall_9()); 
+    }
+    this_ShowUserAccount_9=ruleShowUserAccount
+    { 
+        $current = $this_ShowUserAccount_9.current; 
         afterParserOrEnumRuleCall();
     }
 )
@@ -413,43 +433,83 @@ ruleByAuthor returns [EObject current=null]
 
 
 
-// Entry rule entryRuleBorrow
-entryRuleBorrow returns [EObject current=null] 
+// Entry rule entryRuleLend
+entryRuleLend returns [EObject current=null] 
 	:
-	{ newCompositeNode(grammarAccess.getBorrowRule()); }
-	 iv_ruleBorrow=ruleBorrow 
-	 { $current=$iv_ruleBorrow.current; } 
+	{ newCompositeNode(grammarAccess.getLendRule()); }
+	 iv_ruleLend=ruleLend 
+	 { $current=$iv_ruleLend.current; } 
 	 EOF 
 ;
 
-// Rule Borrow
-ruleBorrow returns [EObject current=null] 
+// Rule Lend
+ruleLend returns [EObject current=null] 
     @init { enterRule(); 
     }
     @after { leaveRule(); }:
-(	otherlv_0='Borrow' 
+(	otherlv_0='Lend' 
     {
-    	newLeafNode(otherlv_0, grammarAccess.getBorrowAccess().getBorrowKeyword_0());
+    	newLeafNode(otherlv_0, grammarAccess.getLendAccess().getLendKeyword_0());
     }
 	otherlv_1='book' 
     {
-    	newLeafNode(otherlv_1, grammarAccess.getBorrowAccess().getBookKeyword_1());
+    	newLeafNode(otherlv_1, grammarAccess.getLendAccess().getBookKeyword_1());
     }
 (
 (
 		lv_isbn_2_0=RULE_ISBN
 		{
-			newLeafNode(lv_isbn_2_0, grammarAccess.getBorrowAccess().getIsbnISBNTerminalRuleCall_2_0()); 
+			newLeafNode(lv_isbn_2_0, grammarAccess.getLendAccess().getIsbnISBNTerminalRuleCall_2_0()); 
 		}
 		{
 	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getBorrowRule());
+	            $current = createModelElement(grammarAccess.getLendRule());
 	        }
        		setWithLastConsumed(
        			$current, 
        			"isbn",
         		lv_isbn_2_0, 
         		"ISBN");
+	    }
+
+)
+)	otherlv_3='to' 
+    {
+    	newLeafNode(otherlv_3, grammarAccess.getLendAccess().getToKeyword_3());
+    }
+(
+(
+		lv_firstname_4_0=RULE_STRING
+		{
+			newLeafNode(lv_firstname_4_0, grammarAccess.getLendAccess().getFirstnameSTRINGTerminalRuleCall_4_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getLendRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"firstname",
+        		lv_firstname_4_0, 
+        		"STRING");
+	    }
+
+)
+)(
+(
+		lv_secondname_5_0=RULE_STRING
+		{
+			newLeafNode(lv_secondname_5_0, grammarAccess.getLendAccess().getSecondnameSTRINGTerminalRuleCall_5_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getLendRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"secondname",
+        		lv_secondname_5_0, 
+        		"STRING");
 	    }
 
 )
@@ -599,6 +659,89 @@ ruleAdd returns [EObject current=null]
 
 
 
+// Entry rule entryRuleAddUser
+entryRuleAddUser returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getAddUserRule()); }
+	 iv_ruleAddUser=ruleAddUser 
+	 { $current=$iv_ruleAddUser.current; } 
+	 EOF 
+;
+
+// Rule AddUser
+ruleAddUser returns [EObject current=null] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+(	otherlv_0='Add' 
+    {
+    	newLeafNode(otherlv_0, grammarAccess.getAddUserAccess().getAddKeyword_0());
+    }
+	otherlv_1='user' 
+    {
+    	newLeafNode(otherlv_1, grammarAccess.getAddUserAccess().getUserKeyword_1());
+    }
+(
+(
+		lv_firstname_2_0=RULE_STRING
+		{
+			newLeafNode(lv_firstname_2_0, grammarAccess.getAddUserAccess().getFirstnameSTRINGTerminalRuleCall_2_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getAddUserRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"firstname",
+        		lv_firstname_2_0, 
+        		"STRING");
+	    }
+
+)
+)(
+(
+		lv_secondname_3_0=RULE_STRING
+		{
+			newLeafNode(lv_secondname_3_0, grammarAccess.getAddUserAccess().getSecondnameSTRINGTerminalRuleCall_3_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getAddUserRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"secondname",
+        		lv_secondname_3_0, 
+        		"STRING");
+	    }
+
+)
+)(
+(
+		lv_age_4_0=RULE_YEAR
+		{
+			newLeafNode(lv_age_4_0, grammarAccess.getAddUserAccess().getAgeYEARTerminalRuleCall_4_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getAddUserRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"age",
+        		lv_age_4_0, 
+        		"YEAR");
+	    }
+
+)
+))
+;
+
+
+
+
+
 // Entry rule entryRuleRemove
 entryRuleRemove returns [EObject current=null] 
 	:
@@ -683,6 +826,46 @@ ruleReturn returns [EObject current=null]
        			"isbn",
         		lv_isbn_2_0, 
         		"ISBN");
+	    }
+
+)
+)	otherlv_3='from' 
+    {
+    	newLeafNode(otherlv_3, grammarAccess.getReturnAccess().getFromKeyword_3());
+    }
+(
+(
+		lv_firstname_4_0=RULE_STRING
+		{
+			newLeafNode(lv_firstname_4_0, grammarAccess.getReturnAccess().getFirstnameSTRINGTerminalRuleCall_4_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getReturnRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"firstname",
+        		lv_firstname_4_0, 
+        		"STRING");
+	    }
+
+)
+)(
+(
+		lv_secondname_5_0=RULE_STRING
+		{
+			newLeafNode(lv_secondname_5_0, grammarAccess.getReturnAccess().getSecondnameSTRINGTerminalRuleCall_5_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getReturnRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"secondname",
+        		lv_secondname_5_0, 
+        		"STRING");
 	    }
 
 )
@@ -838,6 +1021,75 @@ ruleShow returns [EObject current=null]
        			"what",
         		lv_what_2_0, 
         		"WHAT");
+	    }
+
+)
+))
+;
+
+
+
+
+
+// Entry rule entryRuleShowUserAccount
+entryRuleShowUserAccount returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getShowUserAccountRule()); }
+	 iv_ruleShowUserAccount=ruleShowUserAccount 
+	 { $current=$iv_ruleShowUserAccount.current; } 
+	 EOF 
+;
+
+// Rule ShowUserAccount
+ruleShowUserAccount returns [EObject current=null] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+(	otherlv_0='Show' 
+    {
+    	newLeafNode(otherlv_0, grammarAccess.getShowUserAccountAccess().getShowKeyword_0());
+    }
+	otherlv_1='user' 
+    {
+    	newLeafNode(otherlv_1, grammarAccess.getShowUserAccountAccess().getUserKeyword_1());
+    }
+	otherlv_2='account' 
+    {
+    	newLeafNode(otherlv_2, grammarAccess.getShowUserAccountAccess().getAccountKeyword_2());
+    }
+(
+(
+		lv_firstname_3_0=RULE_STRING
+		{
+			newLeafNode(lv_firstname_3_0, grammarAccess.getShowUserAccountAccess().getFirstnameSTRINGTerminalRuleCall_3_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getShowUserAccountRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"firstname",
+        		lv_firstname_3_0, 
+        		"STRING");
+	    }
+
+)
+)(
+(
+		lv_secondname_4_0=RULE_STRING
+		{
+			newLeafNode(lv_secondname_4_0, grammarAccess.getShowUserAccountAccess().getSecondnameSTRINGTerminalRuleCall_4_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getShowUserAccountRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"secondname",
+        		lv_secondname_4_0, 
+        		"STRING");
 	    }
 
 )

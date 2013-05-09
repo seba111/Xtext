@@ -8,12 +8,14 @@ import org.xtext.library.library.Model
 import org.xtext.library.library.Command
 import org.xtext.library.library.Add
 import org.xtext.library.library.Author
-import org.xtext.library.library.Borrow
+import org.xtext.library.library.Lend
 import org.xtext.library.library.Return
 import org.xtext.library.library.Remove
 import org.xtext.library.library.Check
 import org.xtext.library.library.AddAuthor
+import org.xtext.library.library.AddUser
 import org.xtext.library.library.Show
+import org.xtext.library.library.ShowUserAccount
 import org.xtext.library.library.ByYear
 import org.xtext.library.library.ByAuthor
 import static extension org.eclipse.xtext.EcoreUtil2.*
@@ -105,16 +107,19 @@ class LibraryJvmModelInferrer extends AbstractModelInferrer {
 								statement = connection.createStatement();
 								statement.setQueryTimeout(30);
 								
+								statement.executeUpdate("drop table connection;");
+								statement.executeUpdate("drop table connection_book_user;");
 								statement.executeUpdate("drop table book;");
 								statement.executeUpdate("drop table author;");
-								statement.executeUpdate("drop table connection;");
+								statement.executeUpdate("drop table user;");
 								
 								statement.executeUpdate("create table if not exists book("
 													+ "bookId integer primary key autoincrement,"
 													+ "isbn varchar(50),"
 													+ "title varchar(100),"
 													+ "year integer(4),"
-													+ "available varchar(6)"
+													+ "available varchar(6),"
+													+ "number integer(4)"
 													+ ")");
 																
 								statement.executeUpdate("create table if not exists author("
@@ -122,11 +127,23 @@ class LibraryJvmModelInferrer extends AbstractModelInferrer {
 													+ "firstname varchar(50),"
 													+ "secondname varchar(200)"
 													+ ")");
+								statement.executeUpdate("create table if not exists user("
+													+ "userId integer primary key autoincrement,"
+													+ "firstname varchar(50),"
+													+ "secondname varchar(200),"
+													+ "age integer(3)"
+													+ ")");
 								statement.executeUpdate("create table if not exists connection("
 													+ "bookId integer,"
 													+ "authorId integer,"
 													+ "FOREIGN KEY(bookId) REFERENCES book(bookId),"
 													+ "FOREIGN KEY(authorId) REFERENCES book(authorId)"
+													+ ")");
+								statement.executeUpdate("create table if not exists connection_book_user("
+													+ "bookId integer,"
+													+ "userId integer,"
+													+ "FOREIGN KEY(bookId) REFERENCES book(bookId),"
+													+ "FOREIGN KEY(userId) REFERENCES user(userId)"
 													+ ")");
 							}
 							catch(java.sql.SQLException e)
@@ -222,14 +239,15 @@ class LibraryJvmModelInferrer extends AbstractModelInferrer {
 					)
 				]
 			]
-			members += toMethod("BorrowBook",newTypeRef(Void::TYPE))[
+			members += toMethod("LendBook",newTypeRef(Void::TYPE))[
 				parameters += toParameter("isbn",element.newTypeRef('java.lang.String')) 
+				parameters += toParameter("user",element.newTypeRef("User"))
 				setVisibility(JvmVisibility::PUBLIC)
 				body = [
 					append(
 						'''
 							System.out.println("------------------------");
-							System.out.println("Borrow:");
+							System.out.println("Lend:");
 							java.sql.ResultSet rs;
 							try
 							{
@@ -243,12 +261,43 @@ class LibraryJvmModelInferrer extends AbstractModelInferrer {
 									rs = statement.executeQuery("select * from book where isbn='"+isbn+"' and available='true'");
 									if(!rs.next())
 									{
-										System.out.println("Nie mozna wypozyczyc ksiazki o ISBN "+isbn+", gdyz zostala ona juz wypozyczona");
+										System.out.println("Nie mozna wypo¿yczyæ ksi¹¿ki o ISBN "+isbn+", gdy¿ zosta³a ona ju¿ wypo¿yczona");
 									}
 									else
 									{
-										statement.executeUpdate("update book set available='false' where isbn='"+isbn+"'");
-										System.out.println("wypozyczono ksiazke o ISBN "+isbn);
+										
+										rs = statement.executeQuery("select userId from user where firstname='"+user.getFirstname()
+																							+"' and secondname='"+user.getSecondname()+"'");
+										if(rs.next())
+										{
+											int uId = rs.getInt(1);
+											
+											rs = statement.executeQuery("select number from book where isbn = '"
+															+ isbn +"'");
+											rs.next();
+											Integer numberOfBooks = rs.getInt(1);
+											numberOfBooks--;
+											statement.executeUpdate("update book set number = "+ numberOfBooks +" where isbn = '"
+															+ isbn +"'");
+											if(numberOfBooks <= 0)
+											{
+												statement.executeUpdate("update book set available='false' where isbn='"+isbn+"'");
+											}
+											
+											rs = statement.executeQuery("select bookId from book where isbn='"+ isbn+"'");
+											rs.next();
+											int bId = rs.getInt(1);
+										
+											statement.executeUpdate("insert into connection_book_user(bookId, userId) values("
+																+ bId+","
+																+ uId+")");
+																																
+											System.out.println("wypo¿yczono ksi¹¿ke o ISBN "+isbn);
+										}
+										else
+										{
+											System.out.println("niema takiego u¿ytkownika");
+										}
 									}
 								}
 							}
@@ -262,6 +311,7 @@ class LibraryJvmModelInferrer extends AbstractModelInferrer {
 			]
 			members += toMethod("ReturnBook",newTypeRef(Void::TYPE))[
 				parameters += toParameter("isbn",element.newTypeRef('java.lang.String')) 
+				parameters += toParameter("user",element.newTypeRef("User"))
 				setVisibility(JvmVisibility::PUBLIC)
 				body = [
 					append(
@@ -278,8 +328,32 @@ class LibraryJvmModelInferrer extends AbstractModelInferrer {
 								}
 								else
 								{
-									statement.executeUpdate("update book set available='true' where isbn='"+isbn+"'");
-									System.out.println("zwrocono ksiazke o ISBN "+isbn);
+										rs = statement.executeQuery("select userId from user where firstname='"+user.getFirstname()
+																							+"' and secondname='"+user.getSecondname()+"'");
+										if(rs.next())
+										{
+											int uId = rs.getInt(1);
+											rs = statement.executeQuery("select bookId from book where isbn='"+ isbn+"'");
+											rs.next();
+											int bId = rs.getInt(1);
+										
+											statement.executeUpdate("delete from connection_book_user where bookId="+ bId+" and userId ="+ uId);
+											statement.executeUpdate("update book set available='true' where isbn='"+isbn+"'");
+											
+											rs = statement.executeQuery("select number from book where isbn = '"
+															+ isbn +"'");
+											rs.next();
+											Integer numberOfBooks = rs.getInt(1);
+											numberOfBooks++;
+											statement.executeUpdate("update book set number = "+ numberOfBooks +" where isbn = '"
+															+ isbn +"'");
+
+											System.out.println("zwrocono ksiazke o ISBN "+isbn);																					
+										}
+										else
+										{
+											System.out.println("niema takiego u¿ytkownika");
+										}
 								}
 							}
 							catch(java.sql.SQLException e)
@@ -307,10 +381,10 @@ class LibraryJvmModelInferrer extends AbstractModelInferrer {
 								//jesli niema jeszcze takiej ksiazki to ja dodajemy do bazy
 								if(!rs.next())
 								{
-									statement.executeUpdate("insert into book(isbn, title, year, available) values('"
+									statement.executeUpdate("insert into book(isbn, title, year, available,number) values('"
 															+ book.getIsbn()+"','"
 															+ book.getTitle()+"','"
-															+ book.getYear()+"','true')");
+															+ book.getYear()+"','true',1)");
 									
 									System.out.println("Dodano ksiazke o ISBN "+book.getIsbn());
 									added = true;
@@ -318,6 +392,16 @@ class LibraryJvmModelInferrer extends AbstractModelInferrer {
 								else
 								{
 									System.out.println("Ksiazka o takim ISBN ("+ book.getIsbn() +") juz istnieje w bazie");	
+									rs = statement.executeQuery("select number from book where isbn = '"
+															+ book.getIsbn()+"'");
+									rs.next();
+									Integer numberOfBooks = rs.getInt(1);
+									numberOfBooks++;
+									statement.executeUpdate("update book set number = "+ numberOfBooks +" where isbn = '"
+															+ book.getIsbn()+"'");
+									statement.executeUpdate("update book set available='true' where isbn='"+book.getIsbn()+"'");
+									
+									System.out.println("Zwiêkszono liczbê danych pozycji");	
 								}
 							}
 							catch(java.sql.SQLException e)
@@ -362,6 +446,84 @@ class LibraryJvmModelInferrer extends AbstractModelInferrer {
 										statement.executeUpdate("insert into connection(bookId, authorId) values("
 																+ bId+","
 																+ aId+")");
+									}
+								}
+							}
+							catch(java.sql.SQLException e)
+							{
+								System.err.println(e.getMessage());
+							}
+						'''
+					)
+				]
+			]
+			members += toMethod("AddUser",newTypeRef(Void::TYPE))[
+				parameters += toParameter("user",element.newTypeRef("User"))
+				setVisibility(JvmVisibility::PUBLIC)
+				body = [
+					append(
+						'''
+							System.out.println("------------------------");
+							System.out.println("AddUser:");
+							java.sql.ResultSet rs;
+							try
+							{
+								rs = statement.executeQuery("select * from user where firstname = '"
+															+ user.getFirstname()+"' and secondname = '"
+															+ user.getSecondname()+"'");
+								//jesli niema jeszcze takiego uzytkownika
+								if(!rs.next())
+								{
+									statement.executeUpdate("insert into user(firstname, secondname, age) values('"
+															+ user.getFirstname()+"','"
+															+ user.getSecondname()+"','"
+															+ user.getAge()+"')");
+									
+									System.out.println("Dodano u¿ytkownika");
+								}
+								else
+								{
+									System.out.println("Taki u¿ytkownik ju¿ znajduje siê w bazie");	
+								}
+							}
+							catch(java.sql.SQLException e)
+							{
+								System.err.println(e.getMessage());
+							}
+						'''
+					)
+				]
+			]
+			members += toMethod("ShowUserAccount",newTypeRef(Void::TYPE))[
+				parameters += toParameter("user",element.newTypeRef("User"))
+				setVisibility(JvmVisibility::PUBLIC)
+				body = [
+					append(
+						'''
+							System.out.println("------------------------");
+							System.out.println("UserAccount:");	
+							java.sql.ResultSet rs;
+							try
+							{
+								rs = statement.executeQuery("select userId from user where firstname='"+user.getFirstname()
+																							+"' and secondname='"+user.getSecondname()+"'");
+								rs.next();
+								int uId = rs.getInt(1);
+								
+								rs = statement.executeQuery("select bookId from connection_book_user where userId="+uId);
+								java.util.List<Integer> bookIds = new java.util.ArrayList<Integer>();
+								while(rs.next())
+								{
+									bookIds.add(rs.getInt(1));
+								}
+								System.out.println("Ksi¹¿ki wypo¿yczone przez "+ user.getFirstname()+" "+user.getSecondname());	
+								for( Integer bId : bookIds)
+								{
+									rs = statement.executeQuery("select isbn, title from book where bookId = "+bId);
+									
+									while(rs.next())
+									{
+										System.out.println("Tytu³: "+ rs.getString(2)+", isbn: "+rs.getString(1));
 									}
 								}
 							}
@@ -640,6 +802,17 @@ class LibraryJvmModelInferrer extends AbstractModelInferrer {
 			members += toSetter("secondname",newTypeRef('java.lang.String'))
 			members += toGetter("secondname",newTypeRef('java.lang.String'))		
 		])
+		acceptor.accept(element.toClass("User")).initializeLater([
+			members += toField("firstname",newTypeRef('java.lang.String'))
+			members += toSetter("firstname",newTypeRef('java.lang.String'))
+			members += toGetter("firstname",newTypeRef('java.lang.String'))	
+			members += toField("secondname",newTypeRef('java.lang.String'))
+			members += toSetter("secondname",newTypeRef('java.lang.String'))
+			members += toGetter("secondname",newTypeRef('java.lang.String'))
+			members += toField("age",newTypeRef('java.lang.String'))
+			members += toSetter("age",newTypeRef('java.lang.String'))
+			members += toGetter("age",newTypeRef('java.lang.String'))		
+		])
 		acceptor.accept(element.toClass("Book")).initializeLater([
 			members += toField("isbn",newTypeRef('java.lang.String'))
 			members += toSetter("isbn",newTypeRef('java.lang.String'))
@@ -711,13 +884,34 @@ class LibraryJvmModelInferrer extends AbstractModelInferrer {
 					au«numberOfCommand».setSecondname("«command.author.secondname»");
 					db.AddAuthorToBook("«command.isbn»" , au«numberOfCommand»);
 				'''
-			Borrow:
+			AddUser:
 				'''
-					db.BorrowBook("«command.isbn»");
+					User us«addOneToCommandNumber()» = new User();
+					us«numberOfCommand».setFirstname("«command.firstname»");
+					us«numberOfCommand».setSecondname("«command.secondname»");
+					us«numberOfCommand».setAge("«command.age»");
+					db.AddUser(us«numberOfCommand»);
+				'''
+			Lend:
+				'''
+					User us«addOneToCommandNumber()» = new User();
+					us«numberOfCommand».setFirstname("«command.firstname»");
+					us«numberOfCommand».setSecondname("«command.secondname»");
+					db.LendBook("«command.isbn»",us«numberOfCommand»);
+				'''
+			ShowUserAccount:
+				'''
+					User us«addOneToCommandNumber()» = new User();
+					us«numberOfCommand».setFirstname("«command.firstname»");
+					us«numberOfCommand».setSecondname("«command.secondname»");
+					db.ShowUserAccount(us«numberOfCommand»);
 				'''
 			Return:
 				'''
-					db.ReturnBook("«command.isbn»");
+					User us«addOneToCommandNumber()» = new User();
+					us«numberOfCommand».setFirstname("«command.firstname»");
+					us«numberOfCommand».setSecondname("«command.secondname»");
+					db.ReturnBook("«command.isbn»",us«numberOfCommand»);
 				'''	
 			Remove:
 				'''
@@ -751,8 +945,7 @@ class LibraryJvmModelInferrer extends AbstractModelInferrer {
 		}						
 	}	
 	def protected int addOneToCommandNumber()
-	{
-		
+	{		
 		numberOfCommand = numberOfCommand +1
 		return numberOfCommand
 	}	 			

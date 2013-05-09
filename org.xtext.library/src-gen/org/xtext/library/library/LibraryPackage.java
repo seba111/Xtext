@@ -216,14 +216,14 @@ public interface LibraryPackage extends EPackage
   int BY_AUTHOR_FEATURE_COUNT = SEARCH_FEATURE_COUNT + 1;
 
   /**
-   * The meta object id for the '{@link org.xtext.library.library.impl.BorrowImpl <em>Borrow</em>}' class.
+   * The meta object id for the '{@link org.xtext.library.library.impl.LendImpl <em>Lend</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see org.xtext.library.library.impl.BorrowImpl
-   * @see org.xtext.library.library.impl.LibraryPackageImpl#getBorrow()
+   * @see org.xtext.library.library.impl.LendImpl
+   * @see org.xtext.library.library.impl.LibraryPackageImpl#getLend()
    * @generated
    */
-  int BORROW = 6;
+  int LEND = 6;
 
   /**
    * The feature id for the '<em><b>Isbn</b></em>' attribute.
@@ -232,16 +232,34 @@ public interface LibraryPackage extends EPackage
    * @generated
    * @ordered
    */
-  int BORROW__ISBN = COMMAND_FEATURE_COUNT + 0;
+  int LEND__ISBN = COMMAND_FEATURE_COUNT + 0;
 
   /**
-   * The number of structural features of the '<em>Borrow</em>' class.
+   * The feature id for the '<em><b>Firstname</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int BORROW_FEATURE_COUNT = COMMAND_FEATURE_COUNT + 1;
+  int LEND__FIRSTNAME = COMMAND_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Secondname</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LEND__SECONDNAME = COMMAND_FEATURE_COUNT + 2;
+
+  /**
+   * The number of structural features of the '<em>Lend</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LEND_FEATURE_COUNT = COMMAND_FEATURE_COUNT + 3;
 
   /**
    * The meta object id for the '{@link org.xtext.library.library.impl.AddImpl <em>Add</em>}' class.
@@ -308,6 +326,52 @@ public interface LibraryPackage extends EPackage
   int ADD_FEATURE_COUNT = COMMAND_FEATURE_COUNT + 5;
 
   /**
+   * The meta object id for the '{@link org.xtext.library.library.impl.AddUserImpl <em>Add User</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.library.library.impl.AddUserImpl
+   * @see org.xtext.library.library.impl.LibraryPackageImpl#getAddUser()
+   * @generated
+   */
+  int ADD_USER = 8;
+
+  /**
+   * The feature id for the '<em><b>Firstname</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ADD_USER__FIRSTNAME = COMMAND_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Secondname</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ADD_USER__SECONDNAME = COMMAND_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Age</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ADD_USER__AGE = COMMAND_FEATURE_COUNT + 2;
+
+  /**
+   * The number of structural features of the '<em>Add User</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ADD_USER_FEATURE_COUNT = COMMAND_FEATURE_COUNT + 3;
+
+  /**
    * The meta object id for the '{@link org.xtext.library.library.impl.RemoveImpl <em>Remove</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -315,7 +379,7 @@ public interface LibraryPackage extends EPackage
    * @see org.xtext.library.library.impl.LibraryPackageImpl#getRemove()
    * @generated
    */
-  int REMOVE = 8;
+  int REMOVE = 9;
 
   /**
    * The feature id for the '<em><b>Isbn</b></em>' attribute.
@@ -343,7 +407,7 @@ public interface LibraryPackage extends EPackage
    * @see org.xtext.library.library.impl.LibraryPackageImpl#getReturn()
    * @generated
    */
-  int RETURN = 9;
+  int RETURN = 10;
 
   /**
    * The feature id for the '<em><b>Isbn</b></em>' attribute.
@@ -355,13 +419,31 @@ public interface LibraryPackage extends EPackage
   int RETURN__ISBN = COMMAND_FEATURE_COUNT + 0;
 
   /**
+   * The feature id for the '<em><b>Firstname</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RETURN__FIRSTNAME = COMMAND_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Secondname</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RETURN__SECONDNAME = COMMAND_FEATURE_COUNT + 2;
+
+  /**
    * The number of structural features of the '<em>Return</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int RETURN_FEATURE_COUNT = COMMAND_FEATURE_COUNT + 1;
+  int RETURN_FEATURE_COUNT = COMMAND_FEATURE_COUNT + 3;
 
   /**
    * The meta object id for the '{@link org.xtext.library.library.impl.CheckImpl <em>Check</em>}' class.
@@ -371,7 +453,7 @@ public interface LibraryPackage extends EPackage
    * @see org.xtext.library.library.impl.LibraryPackageImpl#getCheck()
    * @generated
    */
-  int CHECK = 10;
+  int CHECK = 11;
 
   /**
    * The feature id for the '<em><b>Isbn</b></em>' attribute.
@@ -399,7 +481,7 @@ public interface LibraryPackage extends EPackage
    * @see org.xtext.library.library.impl.LibraryPackageImpl#getAuthor()
    * @generated
    */
-  int AUTHOR = 11;
+  int AUTHOR = 12;
 
   /**
    * The feature id for the '<em><b>Firstname</b></em>' attribute.
@@ -436,7 +518,7 @@ public interface LibraryPackage extends EPackage
    * @see org.xtext.library.library.impl.LibraryPackageImpl#getShow()
    * @generated
    */
-  int SHOW = 12;
+  int SHOW = 13;
 
   /**
    * The feature id for the '<em><b>What</b></em>' attribute.
@@ -455,6 +537,43 @@ public interface LibraryPackage extends EPackage
    * @ordered
    */
   int SHOW_FEATURE_COUNT = COMMAND_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link org.xtext.library.library.impl.ShowUserAccountImpl <em>Show User Account</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.library.library.impl.ShowUserAccountImpl
+   * @see org.xtext.library.library.impl.LibraryPackageImpl#getShowUserAccount()
+   * @generated
+   */
+  int SHOW_USER_ACCOUNT = 14;
+
+  /**
+   * The feature id for the '<em><b>Firstname</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SHOW_USER_ACCOUNT__FIRSTNAME = COMMAND_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Secondname</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SHOW_USER_ACCOUNT__SECONDNAME = COMMAND_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Show User Account</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SHOW_USER_ACCOUNT_FEATURE_COUNT = COMMAND_FEATURE_COUNT + 2;
 
 
   /**
@@ -573,25 +692,47 @@ public interface LibraryPackage extends EPackage
   EReference getByAuthor_Author();
 
   /**
-   * Returns the meta object for class '{@link org.xtext.library.library.Borrow <em>Borrow</em>}'.
+   * Returns the meta object for class '{@link org.xtext.library.library.Lend <em>Lend</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Borrow</em>'.
-   * @see org.xtext.library.library.Borrow
+   * @return the meta object for class '<em>Lend</em>'.
+   * @see org.xtext.library.library.Lend
    * @generated
    */
-  EClass getBorrow();
+  EClass getLend();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.library.library.Borrow#getIsbn <em>Isbn</em>}'.
+   * Returns the meta object for the attribute '{@link org.xtext.library.library.Lend#getIsbn <em>Isbn</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Isbn</em>'.
-   * @see org.xtext.library.library.Borrow#getIsbn()
-   * @see #getBorrow()
+   * @see org.xtext.library.library.Lend#getIsbn()
+   * @see #getLend()
    * @generated
    */
-  EAttribute getBorrow_Isbn();
+  EAttribute getLend_Isbn();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.library.library.Lend#getFirstname <em>Firstname</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Firstname</em>'.
+   * @see org.xtext.library.library.Lend#getFirstname()
+   * @see #getLend()
+   * @generated
+   */
+  EAttribute getLend_Firstname();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.library.library.Lend#getSecondname <em>Secondname</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Secondname</em>'.
+   * @see org.xtext.library.library.Lend#getSecondname()
+   * @see #getLend()
+   * @generated
+   */
+  EAttribute getLend_Secondname();
 
   /**
    * Returns the meta object for class '{@link org.xtext.library.library.Add <em>Add</em>}'.
@@ -659,6 +800,49 @@ public interface LibraryPackage extends EPackage
   EReference getAdd_Autors();
 
   /**
+   * Returns the meta object for class '{@link org.xtext.library.library.AddUser <em>Add User</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Add User</em>'.
+   * @see org.xtext.library.library.AddUser
+   * @generated
+   */
+  EClass getAddUser();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.library.library.AddUser#getFirstname <em>Firstname</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Firstname</em>'.
+   * @see org.xtext.library.library.AddUser#getFirstname()
+   * @see #getAddUser()
+   * @generated
+   */
+  EAttribute getAddUser_Firstname();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.library.library.AddUser#getSecondname <em>Secondname</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Secondname</em>'.
+   * @see org.xtext.library.library.AddUser#getSecondname()
+   * @see #getAddUser()
+   * @generated
+   */
+  EAttribute getAddUser_Secondname();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.library.library.AddUser#getAge <em>Age</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Age</em>'.
+   * @see org.xtext.library.library.AddUser#getAge()
+   * @see #getAddUser()
+   * @generated
+   */
+  EAttribute getAddUser_Age();
+
+  /**
    * Returns the meta object for class '{@link org.xtext.library.library.Remove <em>Remove</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -699,6 +883,28 @@ public interface LibraryPackage extends EPackage
    * @generated
    */
   EAttribute getReturn_Isbn();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.library.library.Return#getFirstname <em>Firstname</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Firstname</em>'.
+   * @see org.xtext.library.library.Return#getFirstname()
+   * @see #getReturn()
+   * @generated
+   */
+  EAttribute getReturn_Firstname();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.library.library.Return#getSecondname <em>Secondname</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Secondname</em>'.
+   * @see org.xtext.library.library.Return#getSecondname()
+   * @see #getReturn()
+   * @generated
+   */
+  EAttribute getReturn_Secondname();
 
   /**
    * Returns the meta object for class '{@link org.xtext.library.library.Check <em>Check</em>}'.
@@ -773,6 +979,38 @@ public interface LibraryPackage extends EPackage
    * @generated
    */
   EAttribute getShow_What();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.library.library.ShowUserAccount <em>Show User Account</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Show User Account</em>'.
+   * @see org.xtext.library.library.ShowUserAccount
+   * @generated
+   */
+  EClass getShowUserAccount();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.library.library.ShowUserAccount#getFirstname <em>Firstname</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Firstname</em>'.
+   * @see org.xtext.library.library.ShowUserAccount#getFirstname()
+   * @see #getShowUserAccount()
+   * @generated
+   */
+  EAttribute getShowUserAccount_Firstname();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.library.library.ShowUserAccount#getSecondname <em>Secondname</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Secondname</em>'.
+   * @see org.xtext.library.library.ShowUserAccount#getSecondname()
+   * @see #getShowUserAccount()
+   * @generated
+   */
+  EAttribute getShowUserAccount_Secondname();
 
   /**
    * Returns the factory that creates the instances of the model.
@@ -898,14 +1136,14 @@ public interface LibraryPackage extends EPackage
     EReference BY_AUTHOR__AUTHOR = eINSTANCE.getByAuthor_Author();
 
     /**
-     * The meta object literal for the '{@link org.xtext.library.library.impl.BorrowImpl <em>Borrow</em>}' class.
+     * The meta object literal for the '{@link org.xtext.library.library.impl.LendImpl <em>Lend</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.xtext.library.library.impl.BorrowImpl
-     * @see org.xtext.library.library.impl.LibraryPackageImpl#getBorrow()
+     * @see org.xtext.library.library.impl.LendImpl
+     * @see org.xtext.library.library.impl.LibraryPackageImpl#getLend()
      * @generated
      */
-    EClass BORROW = eINSTANCE.getBorrow();
+    EClass LEND = eINSTANCE.getLend();
 
     /**
      * The meta object literal for the '<em><b>Isbn</b></em>' attribute feature.
@@ -913,7 +1151,23 @@ public interface LibraryPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute BORROW__ISBN = eINSTANCE.getBorrow_Isbn();
+    EAttribute LEND__ISBN = eINSTANCE.getLend_Isbn();
+
+    /**
+     * The meta object literal for the '<em><b>Firstname</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute LEND__FIRSTNAME = eINSTANCE.getLend_Firstname();
+
+    /**
+     * The meta object literal for the '<em><b>Secondname</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute LEND__SECONDNAME = eINSTANCE.getLend_Secondname();
 
     /**
      * The meta object literal for the '{@link org.xtext.library.library.impl.AddImpl <em>Add</em>}' class.
@@ -966,6 +1220,40 @@ public interface LibraryPackage extends EPackage
     EReference ADD__AUTORS = eINSTANCE.getAdd_Autors();
 
     /**
+     * The meta object literal for the '{@link org.xtext.library.library.impl.AddUserImpl <em>Add User</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.library.library.impl.AddUserImpl
+     * @see org.xtext.library.library.impl.LibraryPackageImpl#getAddUser()
+     * @generated
+     */
+    EClass ADD_USER = eINSTANCE.getAddUser();
+
+    /**
+     * The meta object literal for the '<em><b>Firstname</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ADD_USER__FIRSTNAME = eINSTANCE.getAddUser_Firstname();
+
+    /**
+     * The meta object literal for the '<em><b>Secondname</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ADD_USER__SECONDNAME = eINSTANCE.getAddUser_Secondname();
+
+    /**
+     * The meta object literal for the '<em><b>Age</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ADD_USER__AGE = eINSTANCE.getAddUser_Age();
+
+    /**
      * The meta object literal for the '{@link org.xtext.library.library.impl.RemoveImpl <em>Remove</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1000,6 +1288,22 @@ public interface LibraryPackage extends EPackage
      * @generated
      */
     EAttribute RETURN__ISBN = eINSTANCE.getReturn_Isbn();
+
+    /**
+     * The meta object literal for the '<em><b>Firstname</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute RETURN__FIRSTNAME = eINSTANCE.getReturn_Firstname();
+
+    /**
+     * The meta object literal for the '<em><b>Secondname</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute RETURN__SECONDNAME = eINSTANCE.getReturn_Secondname();
 
     /**
      * The meta object literal for the '{@link org.xtext.library.library.impl.CheckImpl <em>Check</em>}' class.
@@ -1062,6 +1366,32 @@ public interface LibraryPackage extends EPackage
      * @generated
      */
     EAttribute SHOW__WHAT = eINSTANCE.getShow_What();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.library.library.impl.ShowUserAccountImpl <em>Show User Account</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.library.library.impl.ShowUserAccountImpl
+     * @see org.xtext.library.library.impl.LibraryPackageImpl#getShowUserAccount()
+     * @generated
+     */
+    EClass SHOW_USER_ACCOUNT = eINSTANCE.getShowUserAccount();
+
+    /**
+     * The meta object literal for the '<em><b>Firstname</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute SHOW_USER_ACCOUNT__FIRSTNAME = eINSTANCE.getShowUserAccount_Firstname();
+
+    /**
+     * The meta object literal for the '<em><b>Secondname</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute SHOW_USER_ACCOUNT__SECONDNAME = eINSTANCE.getShowUserAccount_Secondname();
 
   }
 
