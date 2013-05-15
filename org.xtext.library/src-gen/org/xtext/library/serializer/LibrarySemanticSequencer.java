@@ -1068,7 +1068,7 @@ public class LibrarySemanticSequencer extends XbaseSemanticSequencer {
 	
 	/**
 	 * Constraint:
-	 *     (isbn=ISBN title=STRING year=YEAR authors+=Author autors+=Author*)
+	 *     (isbn=ISBN title=STRING year=YEAR authors+=Author authors+=Author*)
 	 */
 	protected void sequence_Add(EObject context, Add semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

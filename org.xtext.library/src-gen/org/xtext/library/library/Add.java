@@ -16,7 +16,6 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.xtext.library.library.Add#getTitle <em>Title</em>}</li>
  *   <li>{@link org.xtext.library.library.Add#getYear <em>Year</em>}</li>
  *   <li>{@link org.xtext.library.library.Add#getAuthors <em>Authors</em>}</li>
- *   <li>{@link org.xtext.library.library.Add#getAutors <em>Autors</em>}</li>
  * </ul>
  * </p>
  *
@@ -119,21 +118,5 @@ public interface Add extends Command
    * @generated
    */
   EList<Author> getAuthors();
-
-  /**
-   * Returns the value of the '<em><b>Autors</b></em>' containment reference list.
-   * The list contents are of type {@link org.xtext.library.library.Author}.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Autors</em>' containment reference list isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Autors</em>' containment reference list.
-   * @see org.xtext.library.library.LibraryPackage#getAdd_Autors()
-   * @model containment="true"
-   * @generated
-   */
-  EList<Author> getAutors();
 
 } // Add

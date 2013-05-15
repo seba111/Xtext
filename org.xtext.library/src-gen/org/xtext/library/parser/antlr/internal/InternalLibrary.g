@@ -637,16 +637,16 @@ ruleAdd returns [EObject current=null]
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getAddAccess().getAutorsAuthorParserRuleCall_10_1_0()); 
+	        newCompositeNode(grammarAccess.getAddAccess().getAuthorsAuthorParserRuleCall_10_1_0()); 
 	    }
-		lv_autors_11_0=ruleAuthor		{
+		lv_authors_11_0=ruleAuthor		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getAddRule());
 	        }
        		add(
        			$current, 
-       			"autors",
-        		lv_autors_11_0, 
+       			"authors",
+        		lv_authors_11_0, 
         		"Author");
 	        afterParserOrEnumRuleCall();
 	    }

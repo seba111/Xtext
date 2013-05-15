@@ -75,7 +75,7 @@ class LibraryJvmModelInferrer extends AbstractModelInferrer {
 					append(
 						'''
 						Database db = new Database();
-						Book boo;
+						Book tmpBook;
 						«FOR comm : element.eAllOfType(typeof(Command))»
 							«fillMain(comm)»
 						«ENDFOR»
@@ -107,7 +107,7 @@ class LibraryJvmModelInferrer extends AbstractModelInferrer {
 								statement = connection.createStatement();
 								statement.setQueryTimeout(30);
 								
-								statement.executeUpdate("drop table connection;");
+								statement.executeUpdate("drop table connection_book_author;");
 								statement.executeUpdate("drop table connection_book_user;");
 								statement.executeUpdate("drop table book;");
 								statement.executeUpdate("drop table author;");
@@ -133,7 +133,7 @@ class LibraryJvmModelInferrer extends AbstractModelInferrer {
 													+ "secondname varchar(200),"
 													+ "age integer(3)"
 													+ ")");
-								statement.executeUpdate("create table if not exists connection("
+								statement.executeUpdate("create table if not exists connection_book_author("
 													+ "bookId integer,"
 													+ "authorId integer,"
 													+ "FOREIGN KEY(bookId) REFERENCES book(bookId),"
@@ -223,7 +223,7 @@ class LibraryJvmModelInferrer extends AbstractModelInferrer {
 								}
 								if(bookExists)
 								{
-									statement.executeUpdate("insert into connection(bookId, authorId) values("
+									statement.executeUpdate("insert into connection_book_author(bookId, authorId) values("
 																+ bId+","
 																+ aId+")");
 									System.out.println("Dodano danego autora do ksiazki o ISBN: "+ isbn);
@@ -279,7 +279,7 @@ class LibraryJvmModelInferrer extends AbstractModelInferrer {
 											numberOfBooks--;
 											statement.executeUpdate("update book set number = "+ numberOfBooks +" where isbn = '"
 															+ isbn +"'");
-											if(numberOfBooks <= 0)
+											if(numberOfBooks == 0)
 											{
 												statement.executeUpdate("update book set available='false' where isbn='"+isbn+"'");
 											}
@@ -443,7 +443,7 @@ class LibraryJvmModelInferrer extends AbstractModelInferrer {
 										rs.next();
 										int bId = rs.getInt(1);
 										
-										statement.executeUpdate("insert into connection(bookId, authorId) values("
+										statement.executeUpdate("insert into connection_book_author(bookId, authorId) values("
 																+ bId+","
 																+ aId+")");
 									}
@@ -556,7 +556,8 @@ class LibraryJvmModelInferrer extends AbstractModelInferrer {
 								else
 								{
 									int bId = rs.getInt(1);
-									statement.executeUpdate("delete from connection where bookId =" + bId);
+									statement.executeUpdate("delete from connection_book_author where bookId =" + bId);
+									statement.executeUpdate("delete from connection_book_user where bookId =" + bId);
 									statement.executeUpdate("delete from book where bookId =" + bId);
 									System.out.println("Usuniêto ksi¹¿kê");
 								}
@@ -650,7 +651,7 @@ class LibraryJvmModelInferrer extends AbstractModelInferrer {
 									
 									//pobieramy id autora danej ksiazki
 									java.util.List<Integer> authorIds = new java.util.ArrayList<Integer>();
-									rs = statement.executeQuery("select authorId from connection where bookId = "+ bId);
+									rs = statement.executeQuery("select authorId from connection_book_author where bookId = "+ bId);
 									while(rs.next())
 									{
 										authorIds.add(rs.getInt(1));
@@ -753,7 +754,7 @@ class LibraryJvmModelInferrer extends AbstractModelInferrer {
 									return;
 								}
 									
-								rs = statement.executeQuery("select bookId from connection where authorId="+aId);
+								rs = statement.executeQuery("select bookId from connection_book_author where authorId="+aId);
 								java.util.List<Integer> bookIds = new java.util.ArrayList<Integer>();
 								while(rs.next())
 								{
@@ -834,11 +835,11 @@ class LibraryJvmModelInferrer extends AbstractModelInferrer {
 				body = [
 					append(
 						'''
-							if(authors == null)
+							if(this.authors == null)
 							{
-								authors = new java.util.ArrayList<Author>();
+								this.authors = new java.util.ArrayList<Author>();
 							}
-							authors.add(au);
+							this.authors.add(au);
 						'''
 					)
 				]
@@ -848,7 +849,7 @@ class LibraryJvmModelInferrer extends AbstractModelInferrer {
 				body = [
 					append(
 						'''
-							return authors;
+							return this.authors;
 						'''
 					)
 				]
@@ -862,20 +863,20 @@ class LibraryJvmModelInferrer extends AbstractModelInferrer {
 				
    		switch command {
    			Add:
-   				'''
-					boo = new Book();
-					boo.setIsbn("«command.isbn»");
-					boo.setTitle("«command.title»");
-					boo.setYear("«command.year»");
-					boo.setAvailable("true");
-   				«FOR au : command.eAllOfType(typeof(Author))»
+   				'''					
+					tmpBook = new Book();
+					tmpBook.setIsbn("«command.isbn»");
+					tmpBook.setTitle("«command.title»");
+					tmpBook.setYear("«command.year»");
+					tmpBook.setAvailable("true");
+   				«FOR au : command.authors»
 					Author au«addOneToCommandNumber()» = new Author();
 					au«numberOfCommand».setFirstname("«au.firstname»");
 					au«numberOfCommand».setSecondname("«au.secondname»");
 					
-					boo.addAuthor(au«numberOfCommand»);
+					tmpBook.addAuthor(au«numberOfCommand»);
    				«ENDFOR»
-					db.AddBook(boo);
+					db.AddBook(tmpBook);
 				'''
 			AddAuthor:
 				'''

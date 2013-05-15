@@ -1436,7 +1436,7 @@ public class InternalLibraryParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleAdd"
-    // ../org.xtext.library/src-gen/org/xtext/library/parser/antlr/internal/InternalLibrary.g:533:1: ruleAdd returns [EObject current=null] : (otherlv_0= 'Add' otherlv_1= 'book' ( (lv_isbn_2_0= RULE_ISBN ) ) otherlv_3= ',' ( (lv_title_4_0= RULE_STRING ) ) otherlv_5= ',' ( (lv_year_6_0= RULE_YEAR ) ) otherlv_7= 'written' otherlv_8= 'by' ( (lv_authors_9_0= ruleAuthor ) ) (otherlv_10= ',' ( (lv_autors_11_0= ruleAuthor ) ) )* ) ;
+    // ../org.xtext.library/src-gen/org/xtext/library/parser/antlr/internal/InternalLibrary.g:533:1: ruleAdd returns [EObject current=null] : (otherlv_0= 'Add' otherlv_1= 'book' ( (lv_isbn_2_0= RULE_ISBN ) ) otherlv_3= ',' ( (lv_title_4_0= RULE_STRING ) ) otherlv_5= ',' ( (lv_year_6_0= RULE_YEAR ) ) otherlv_7= 'written' otherlv_8= 'by' ( (lv_authors_9_0= ruleAuthor ) ) (otherlv_10= ',' ( (lv_authors_11_0= ruleAuthor ) ) )* ) ;
     public final EObject ruleAdd() throws RecognitionException {
         EObject current = null;
 
@@ -1452,17 +1452,17 @@ public class InternalLibraryParser extends AbstractInternalAntlrParser {
         Token otherlv_10=null;
         EObject lv_authors_9_0 = null;
 
-        EObject lv_autors_11_0 = null;
+        EObject lv_authors_11_0 = null;
 
 
          enterRule(); 
             
         try {
-            // ../org.xtext.library/src-gen/org/xtext/library/parser/antlr/internal/InternalLibrary.g:536:28: ( (otherlv_0= 'Add' otherlv_1= 'book' ( (lv_isbn_2_0= RULE_ISBN ) ) otherlv_3= ',' ( (lv_title_4_0= RULE_STRING ) ) otherlv_5= ',' ( (lv_year_6_0= RULE_YEAR ) ) otherlv_7= 'written' otherlv_8= 'by' ( (lv_authors_9_0= ruleAuthor ) ) (otherlv_10= ',' ( (lv_autors_11_0= ruleAuthor ) ) )* ) )
-            // ../org.xtext.library/src-gen/org/xtext/library/parser/antlr/internal/InternalLibrary.g:537:1: (otherlv_0= 'Add' otherlv_1= 'book' ( (lv_isbn_2_0= RULE_ISBN ) ) otherlv_3= ',' ( (lv_title_4_0= RULE_STRING ) ) otherlv_5= ',' ( (lv_year_6_0= RULE_YEAR ) ) otherlv_7= 'written' otherlv_8= 'by' ( (lv_authors_9_0= ruleAuthor ) ) (otherlv_10= ',' ( (lv_autors_11_0= ruleAuthor ) ) )* )
+            // ../org.xtext.library/src-gen/org/xtext/library/parser/antlr/internal/InternalLibrary.g:536:28: ( (otherlv_0= 'Add' otherlv_1= 'book' ( (lv_isbn_2_0= RULE_ISBN ) ) otherlv_3= ',' ( (lv_title_4_0= RULE_STRING ) ) otherlv_5= ',' ( (lv_year_6_0= RULE_YEAR ) ) otherlv_7= 'written' otherlv_8= 'by' ( (lv_authors_9_0= ruleAuthor ) ) (otherlv_10= ',' ( (lv_authors_11_0= ruleAuthor ) ) )* ) )
+            // ../org.xtext.library/src-gen/org/xtext/library/parser/antlr/internal/InternalLibrary.g:537:1: (otherlv_0= 'Add' otherlv_1= 'book' ( (lv_isbn_2_0= RULE_ISBN ) ) otherlv_3= ',' ( (lv_title_4_0= RULE_STRING ) ) otherlv_5= ',' ( (lv_year_6_0= RULE_YEAR ) ) otherlv_7= 'written' otherlv_8= 'by' ( (lv_authors_9_0= ruleAuthor ) ) (otherlv_10= ',' ( (lv_authors_11_0= ruleAuthor ) ) )* )
             {
-            // ../org.xtext.library/src-gen/org/xtext/library/parser/antlr/internal/InternalLibrary.g:537:1: (otherlv_0= 'Add' otherlv_1= 'book' ( (lv_isbn_2_0= RULE_ISBN ) ) otherlv_3= ',' ( (lv_title_4_0= RULE_STRING ) ) otherlv_5= ',' ( (lv_year_6_0= RULE_YEAR ) ) otherlv_7= 'written' otherlv_8= 'by' ( (lv_authors_9_0= ruleAuthor ) ) (otherlv_10= ',' ( (lv_autors_11_0= ruleAuthor ) ) )* )
-            // ../org.xtext.library/src-gen/org/xtext/library/parser/antlr/internal/InternalLibrary.g:537:3: otherlv_0= 'Add' otherlv_1= 'book' ( (lv_isbn_2_0= RULE_ISBN ) ) otherlv_3= ',' ( (lv_title_4_0= RULE_STRING ) ) otherlv_5= ',' ( (lv_year_6_0= RULE_YEAR ) ) otherlv_7= 'written' otherlv_8= 'by' ( (lv_authors_9_0= ruleAuthor ) ) (otherlv_10= ',' ( (lv_autors_11_0= ruleAuthor ) ) )*
+            // ../org.xtext.library/src-gen/org/xtext/library/parser/antlr/internal/InternalLibrary.g:537:1: (otherlv_0= 'Add' otherlv_1= 'book' ( (lv_isbn_2_0= RULE_ISBN ) ) otherlv_3= ',' ( (lv_title_4_0= RULE_STRING ) ) otherlv_5= ',' ( (lv_year_6_0= RULE_YEAR ) ) otherlv_7= 'written' otherlv_8= 'by' ( (lv_authors_9_0= ruleAuthor ) ) (otherlv_10= ',' ( (lv_authors_11_0= ruleAuthor ) ) )* )
+            // ../org.xtext.library/src-gen/org/xtext/library/parser/antlr/internal/InternalLibrary.g:537:3: otherlv_0= 'Add' otherlv_1= 'book' ( (lv_isbn_2_0= RULE_ISBN ) ) otherlv_3= ',' ( (lv_title_4_0= RULE_STRING ) ) otherlv_5= ',' ( (lv_year_6_0= RULE_YEAR ) ) otherlv_7= 'written' otherlv_8= 'by' ( (lv_authors_9_0= ruleAuthor ) ) (otherlv_10= ',' ( (lv_authors_11_0= ruleAuthor ) ) )*
             {
             otherlv_0=(Token)match(input,24,FOLLOW_24_in_ruleAdd1247); if (state.failed) return current;
             if ( state.backtracking==0 ) {
@@ -1625,7 +1625,7 @@ public class InternalLibraryParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../org.xtext.library/src-gen/org/xtext/library/parser/antlr/internal/InternalLibrary.g:633:2: (otherlv_10= ',' ( (lv_autors_11_0= ruleAuthor ) ) )*
+            // ../org.xtext.library/src-gen/org/xtext/library/parser/antlr/internal/InternalLibrary.g:633:2: (otherlv_10= ',' ( (lv_authors_11_0= ruleAuthor ) ) )*
             loop4:
             do {
                 int alt4=2;
@@ -1638,7 +1638,7 @@ public class InternalLibraryParser extends AbstractInternalAntlrParser {
 
                 switch (alt4) {
             	case 1 :
-            	    // ../org.xtext.library/src-gen/org/xtext/library/parser/antlr/internal/InternalLibrary.g:633:4: otherlv_10= ',' ( (lv_autors_11_0= ruleAuthor ) )
+            	    // ../org.xtext.library/src-gen/org/xtext/library/parser/antlr/internal/InternalLibrary.g:633:4: otherlv_10= ',' ( (lv_authors_11_0= ruleAuthor ) )
             	    {
             	    otherlv_10=(Token)match(input,25,FOLLOW_25_in_ruleAdd1407); if (state.failed) return current;
             	    if ( state.backtracking==0 ) {
@@ -1646,19 +1646,19 @@ public class InternalLibraryParser extends AbstractInternalAntlrParser {
             	          	newLeafNode(otherlv_10, grammarAccess.getAddAccess().getCommaKeyword_10_0());
             	          
             	    }
-            	    // ../org.xtext.library/src-gen/org/xtext/library/parser/antlr/internal/InternalLibrary.g:637:1: ( (lv_autors_11_0= ruleAuthor ) )
-            	    // ../org.xtext.library/src-gen/org/xtext/library/parser/antlr/internal/InternalLibrary.g:638:1: (lv_autors_11_0= ruleAuthor )
+            	    // ../org.xtext.library/src-gen/org/xtext/library/parser/antlr/internal/InternalLibrary.g:637:1: ( (lv_authors_11_0= ruleAuthor ) )
+            	    // ../org.xtext.library/src-gen/org/xtext/library/parser/antlr/internal/InternalLibrary.g:638:1: (lv_authors_11_0= ruleAuthor )
             	    {
-            	    // ../org.xtext.library/src-gen/org/xtext/library/parser/antlr/internal/InternalLibrary.g:638:1: (lv_autors_11_0= ruleAuthor )
-            	    // ../org.xtext.library/src-gen/org/xtext/library/parser/antlr/internal/InternalLibrary.g:639:3: lv_autors_11_0= ruleAuthor
+            	    // ../org.xtext.library/src-gen/org/xtext/library/parser/antlr/internal/InternalLibrary.g:638:1: (lv_authors_11_0= ruleAuthor )
+            	    // ../org.xtext.library/src-gen/org/xtext/library/parser/antlr/internal/InternalLibrary.g:639:3: lv_authors_11_0= ruleAuthor
             	    {
             	    if ( state.backtracking==0 ) {
             	       
-            	      	        newCompositeNode(grammarAccess.getAddAccess().getAutorsAuthorParserRuleCall_10_1_0()); 
+            	      	        newCompositeNode(grammarAccess.getAddAccess().getAuthorsAuthorParserRuleCall_10_1_0()); 
             	      	    
             	    }
             	    pushFollow(FOLLOW_ruleAuthor_in_ruleAdd1428);
-            	    lv_autors_11_0=ruleAuthor();
+            	    lv_authors_11_0=ruleAuthor();
 
             	    state._fsp--;
             	    if (state.failed) return current;
@@ -1669,8 +1669,8 @@ public class InternalLibraryParser extends AbstractInternalAntlrParser {
             	      	        }
             	             		add(
             	             			current, 
-            	             			"autors",
-            	              		lv_autors_11_0, 
+            	             			"authors",
+            	              		lv_authors_11_0, 
             	              		"Author");
             	      	        afterParserOrEnumRuleCall();
             	      	    

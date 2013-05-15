@@ -288,15 +288,15 @@ public class LibraryGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cAuthorsAuthorParserRuleCall_9_0 = (RuleCall)cAuthorsAssignment_9.eContents().get(0);
 		private final Group cGroup_10 = (Group)cGroup.eContents().get(10);
 		private final Keyword cCommaKeyword_10_0 = (Keyword)cGroup_10.eContents().get(0);
-		private final Assignment cAutorsAssignment_10_1 = (Assignment)cGroup_10.eContents().get(1);
-		private final RuleCall cAutorsAuthorParserRuleCall_10_1_0 = (RuleCall)cAutorsAssignment_10_1.eContents().get(0);
+		private final Assignment cAuthorsAssignment_10_1 = (Assignment)cGroup_10.eContents().get(1);
+		private final RuleCall cAuthorsAuthorParserRuleCall_10_1_0 = (RuleCall)cAuthorsAssignment_10_1.eContents().get(0);
 		
 		//Add:
 		//
-		//	"Add" "book" isbn=ISBN "," title=STRING "," year=YEAR "written" "by" authors+=Author ("," autors+=Author)*;
+		//	"Add" "book" isbn=ISBN "," title=STRING "," year=YEAR "written" "by" authors+=Author ("," authors+=Author)*;
 		public ParserRule getRule() { return rule; }
 
-		//"Add" "book" isbn=ISBN "," title=STRING "," year=YEAR "written" "by" authors+=Author ("," autors+=Author)*
+		//"Add" "book" isbn=ISBN "," title=STRING "," year=YEAR "written" "by" authors+=Author ("," authors+=Author)*
 		public Group getGroup() { return cGroup; }
 
 		//"Add"
@@ -341,17 +341,17 @@ public class LibraryGrammarAccess extends AbstractGrammarElementFinder {
 		//Author
 		public RuleCall getAuthorsAuthorParserRuleCall_9_0() { return cAuthorsAuthorParserRuleCall_9_0; }
 
-		//("," autors+=Author)*
+		//("," authors+=Author)*
 		public Group getGroup_10() { return cGroup_10; }
 
 		//","
 		public Keyword getCommaKeyword_10_0() { return cCommaKeyword_10_0; }
 
-		//autors+=Author
-		public Assignment getAutorsAssignment_10_1() { return cAutorsAssignment_10_1; }
+		//authors+=Author
+		public Assignment getAuthorsAssignment_10_1() { return cAuthorsAssignment_10_1; }
 
 		//Author
-		public RuleCall getAutorsAuthorParserRuleCall_10_1_0() { return cAutorsAuthorParserRuleCall_10_1_0; }
+		public RuleCall getAuthorsAuthorParserRuleCall_10_1_0() { return cAuthorsAuthorParserRuleCall_10_1_0; }
 	}
 
 	public class AddUserElements extends AbstractParserRuleElementFinder {
@@ -748,7 +748,7 @@ public class LibraryGrammarAccess extends AbstractGrammarElementFinder {
 
 	//Add:
 	//
-	//	"Add" "book" isbn=ISBN "," title=STRING "," year=YEAR "written" "by" authors+=Author ("," autors+=Author)*;
+	//	"Add" "book" isbn=ISBN "," title=STRING "," year=YEAR "written" "by" authors+=Author ("," authors+=Author)*;
 	public AddElements getAddAccess() {
 		return (pAdd != null) ? pAdd : (pAdd = new AddElements());
 	}

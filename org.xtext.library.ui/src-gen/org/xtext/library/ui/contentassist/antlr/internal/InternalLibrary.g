@@ -4269,9 +4269,9 @@ rule__Add__Group_10__1__Impl
     }
 :
 (
-{ before(grammarAccess.getAddAccess().getAutorsAssignment_10_1()); }
-(rule__Add__AutorsAssignment_10_1)
-{ after(grammarAccess.getAddAccess().getAutorsAssignment_10_1()); }
+{ before(grammarAccess.getAddAccess().getAuthorsAssignment_10_1()); }
+(rule__Add__AuthorsAssignment_10_1)
+{ after(grammarAccess.getAddAccess().getAuthorsAssignment_10_1()); }
 )
 
 ;
@@ -15964,14 +15964,14 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__Add__AutorsAssignment_10_1
+rule__Add__AuthorsAssignment_10_1
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getAddAccess().getAutorsAuthorParserRuleCall_10_1_0()); }
-	ruleAuthor{ after(grammarAccess.getAddAccess().getAutorsAuthorParserRuleCall_10_1_0()); }
+{ before(grammarAccess.getAddAccess().getAuthorsAuthorParserRuleCall_10_1_0()); }
+	ruleAuthor{ after(grammarAccess.getAddAccess().getAuthorsAuthorParserRuleCall_10_1_0()); }
 )
 
 ;

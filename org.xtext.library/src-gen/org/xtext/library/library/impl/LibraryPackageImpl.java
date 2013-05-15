@@ -408,16 +408,6 @@ public class LibraryPackageImpl extends EPackageImpl implements LibraryPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getAdd_Autors()
-  {
-    return (EReference)addEClass.getEStructuralFeatures().get(4);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EClass getAddUser()
   {
     return addUserEClass;
@@ -670,7 +660,6 @@ public class LibraryPackageImpl extends EPackageImpl implements LibraryPackage
     createEAttribute(addEClass, ADD__TITLE);
     createEAttribute(addEClass, ADD__YEAR);
     createEReference(addEClass, ADD__AUTHORS);
-    createEReference(addEClass, ADD__AUTORS);
 
     addUserEClass = createEClass(ADD_USER);
     createEAttribute(addUserEClass, ADD_USER__FIRSTNAME);
@@ -770,7 +759,6 @@ public class LibraryPackageImpl extends EPackageImpl implements LibraryPackage
     initEAttribute(getAdd_Title(), ecorePackage.getEString(), "title", null, 0, 1, Add.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getAdd_Year(), ecorePackage.getEString(), "year", null, 0, 1, Add.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getAdd_Authors(), this.getAuthor(), null, "authors", null, 0, -1, Add.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getAdd_Autors(), this.getAuthor(), null, "autors", null, 0, -1, Add.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(addUserEClass, AddUser.class, "AddUser", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getAddUser_Firstname(), ecorePackage.getEString(), "firstname", null, 0, 1, AddUser.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

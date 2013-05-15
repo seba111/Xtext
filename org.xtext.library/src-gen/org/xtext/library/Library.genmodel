@@ -32,7 +32,6 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Library.ecore#//Add/title"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Library.ecore#//Add/year"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Library.ecore#//Add/authors"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Library.ecore#//Add/autors"/>
     </genClasses>
     <genClasses ecoreClass="Library.ecore#//AddUser">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Library.ecore#//AddUser/firstname"/>

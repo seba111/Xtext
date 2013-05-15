@@ -2,11 +2,11 @@
 <template 
 	id="MANUALLYADDED_ID1" 
 	autoinsert="true" 
-	context="org.xtext.library.Library.Borrow" 
+	context="org.xtext.library.Library.Lend" 
 	deleted="false" 
 	description="Wstaw szablon wypożyczenia książki" 
 	enabled="true" 
-	name="Borrow">Borrow book ${isbn}</template>
+	name="Lend">Lend book ${isbn} to  ${firstname}  ${secondname}</template>
 <template 
 	id="MANUALLYADDED_ID2" 
 	autoinsert="true" 
@@ -22,13 +22,13 @@
 	deleted="false" 
 	description="Wstaw szablon zwracania książki" 
 	enabled="true" 
-	name="Return">Return book ${isbn}</template>
+	name="Return">Return book ${isbn} from ${firstname}  ${secondname}</template>
 <template 
 	id="MANUALLYADDED_ID4" 
 	autoinsert="true" 
 	context="org.xtext.library.Library.Search" 
 	deleted="false" 
-	description="Wstaw szablon wyszukiwani po określonym autorze" 
+	description="Wstaw szablon wyszukiwania po określonym autorze" 
 	enabled="true" 
 	name="SearchByAuthor">Search book by author ${firstname}  ${secondname}</template>
 <template 
@@ -47,5 +47,13 @@
 	description="Wstaw szablon dodawania książki" 
 	enabled="true" 
 	name="Add">Add book ${isbn}, ${title}, ${year} written by ${firstname} ${secondname}</template>
+<template 
+	id="MANUALLYADDED_ID7" 
+	autoinsert="true" 
+	context="org.xtext.library.Library.AddUser" 
+	deleted="false" 
+	description="Wstaw szablon dodawania użytkownika" 
+	enabled="true" 
+	name="AddUser">Add user ${firstname} ${secondname} ${age}</template>
 </templates>
 	

@@ -308,22 +308,13 @@ public interface LibraryPackage extends EPackage
   int ADD__AUTHORS = COMMAND_FEATURE_COUNT + 3;
 
   /**
-   * The feature id for the '<em><b>Autors</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ADD__AUTORS = COMMAND_FEATURE_COUNT + 4;
-
-  /**
    * The number of structural features of the '<em>Add</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ADD_FEATURE_COUNT = COMMAND_FEATURE_COUNT + 5;
+  int ADD_FEATURE_COUNT = COMMAND_FEATURE_COUNT + 4;
 
   /**
    * The meta object id for the '{@link org.xtext.library.library.impl.AddUserImpl <em>Add User</em>}' class.
@@ -789,17 +780,6 @@ public interface LibraryPackage extends EPackage
   EReference getAdd_Authors();
 
   /**
-   * Returns the meta object for the containment reference list '{@link org.xtext.library.library.Add#getAutors <em>Autors</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Autors</em>'.
-   * @see org.xtext.library.library.Add#getAutors()
-   * @see #getAdd()
-   * @generated
-   */
-  EReference getAdd_Autors();
-
-  /**
    * Returns the meta object for class '{@link org.xtext.library.library.AddUser <em>Add User</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1210,14 +1190,6 @@ public interface LibraryPackage extends EPackage
      * @generated
      */
     EReference ADD__AUTHORS = eINSTANCE.getAdd_Authors();
-
-    /**
-     * The meta object literal for the '<em><b>Autors</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference ADD__AUTORS = eINSTANCE.getAdd_Autors();
 
     /**
      * The meta object literal for the '{@link org.xtext.library.library.impl.AddUserImpl <em>Add User</em>}' class.

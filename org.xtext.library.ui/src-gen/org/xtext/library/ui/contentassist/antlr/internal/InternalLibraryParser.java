@@ -13438,26 +13438,26 @@ public class InternalLibraryParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Add__Group_10__1__Impl"
-    // ../org.xtext.library.ui/src-gen/org/xtext/library/ui/contentassist/antlr/internal/InternalLibrary.g:4266:1: rule__Add__Group_10__1__Impl : ( ( rule__Add__AutorsAssignment_10_1 ) ) ;
+    // ../org.xtext.library.ui/src-gen/org/xtext/library/ui/contentassist/antlr/internal/InternalLibrary.g:4266:1: rule__Add__Group_10__1__Impl : ( ( rule__Add__AuthorsAssignment_10_1 ) ) ;
     public final void rule__Add__Group_10__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.library.ui/src-gen/org/xtext/library/ui/contentassist/antlr/internal/InternalLibrary.g:4270:1: ( ( ( rule__Add__AutorsAssignment_10_1 ) ) )
-            // ../org.xtext.library.ui/src-gen/org/xtext/library/ui/contentassist/antlr/internal/InternalLibrary.g:4271:1: ( ( rule__Add__AutorsAssignment_10_1 ) )
+            // ../org.xtext.library.ui/src-gen/org/xtext/library/ui/contentassist/antlr/internal/InternalLibrary.g:4270:1: ( ( ( rule__Add__AuthorsAssignment_10_1 ) ) )
+            // ../org.xtext.library.ui/src-gen/org/xtext/library/ui/contentassist/antlr/internal/InternalLibrary.g:4271:1: ( ( rule__Add__AuthorsAssignment_10_1 ) )
             {
-            // ../org.xtext.library.ui/src-gen/org/xtext/library/ui/contentassist/antlr/internal/InternalLibrary.g:4271:1: ( ( rule__Add__AutorsAssignment_10_1 ) )
-            // ../org.xtext.library.ui/src-gen/org/xtext/library/ui/contentassist/antlr/internal/InternalLibrary.g:4272:1: ( rule__Add__AutorsAssignment_10_1 )
+            // ../org.xtext.library.ui/src-gen/org/xtext/library/ui/contentassist/antlr/internal/InternalLibrary.g:4271:1: ( ( rule__Add__AuthorsAssignment_10_1 ) )
+            // ../org.xtext.library.ui/src-gen/org/xtext/library/ui/contentassist/antlr/internal/InternalLibrary.g:4272:1: ( rule__Add__AuthorsAssignment_10_1 )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getAddAccess().getAutorsAssignment_10_1()); 
+               before(grammarAccess.getAddAccess().getAuthorsAssignment_10_1()); 
             }
-            // ../org.xtext.library.ui/src-gen/org/xtext/library/ui/contentassist/antlr/internal/InternalLibrary.g:4273:1: ( rule__Add__AutorsAssignment_10_1 )
-            // ../org.xtext.library.ui/src-gen/org/xtext/library/ui/contentassist/antlr/internal/InternalLibrary.g:4273:2: rule__Add__AutorsAssignment_10_1
+            // ../org.xtext.library.ui/src-gen/org/xtext/library/ui/contentassist/antlr/internal/InternalLibrary.g:4273:1: ( rule__Add__AuthorsAssignment_10_1 )
+            // ../org.xtext.library.ui/src-gen/org/xtext/library/ui/contentassist/antlr/internal/InternalLibrary.g:4273:2: rule__Add__AuthorsAssignment_10_1
             {
-            pushFollow(FOLLOW_rule__Add__AutorsAssignment_10_1_in_rule__Add__Group_10__1__Impl9087);
-            rule__Add__AutorsAssignment_10_1();
+            pushFollow(FOLLOW_rule__Add__AuthorsAssignment_10_1_in_rule__Add__Group_10__1__Impl9087);
+            rule__Add__AuthorsAssignment_10_1();
 
             state._fsp--;
             if (state.failed) return ;
@@ -13465,7 +13465,7 @@ public class InternalLibraryParser extends AbstractInternalContentAssistParser {
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getAddAccess().getAutorsAssignment_10_1()); 
+               after(grammarAccess.getAddAccess().getAuthorsAssignment_10_1()); 
             }
 
             }
@@ -45424,9 +45424,9 @@ public class InternalLibraryParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__Add__AuthorsAssignment_9"
 
 
-    // $ANTLR start "rule__Add__AutorsAssignment_10_1"
-    // ../org.xtext.library.ui/src-gen/org/xtext/library/ui/contentassist/antlr/internal/InternalLibrary.g:15967:1: rule__Add__AutorsAssignment_10_1 : ( ruleAuthor ) ;
-    public final void rule__Add__AutorsAssignment_10_1() throws RecognitionException {
+    // $ANTLR start "rule__Add__AuthorsAssignment_10_1"
+    // ../org.xtext.library.ui/src-gen/org/xtext/library/ui/contentassist/antlr/internal/InternalLibrary.g:15967:1: rule__Add__AuthorsAssignment_10_1 : ( ruleAuthor ) ;
+    public final void rule__Add__AuthorsAssignment_10_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
@@ -45438,15 +45438,15 @@ public class InternalLibraryParser extends AbstractInternalContentAssistParser {
             // ../org.xtext.library.ui/src-gen/org/xtext/library/ui/contentassist/antlr/internal/InternalLibrary.g:15973:1: ruleAuthor
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getAddAccess().getAutorsAuthorParserRuleCall_10_1_0()); 
+               before(grammarAccess.getAddAccess().getAuthorsAuthorParserRuleCall_10_1_0()); 
             }
-            pushFollow(FOLLOW_ruleAuthor_in_rule__Add__AutorsAssignment_10_132090);
+            pushFollow(FOLLOW_ruleAuthor_in_rule__Add__AuthorsAssignment_10_132090);
             ruleAuthor();
 
             state._fsp--;
             if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getAddAccess().getAutorsAuthorParserRuleCall_10_1_0()); 
+               after(grammarAccess.getAddAccess().getAuthorsAuthorParserRuleCall_10_1_0()); 
             }
 
             }
@@ -45466,7 +45466,7 @@ public class InternalLibraryParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__Add__AutorsAssignment_10_1"
+    // $ANTLR end "rule__Add__AuthorsAssignment_10_1"
 
 
     // $ANTLR start "rule__AddUser__FirstnameAssignment_2"
@@ -55029,7 +55029,7 @@ public class InternalLibraryParser extends AbstractInternalContentAssistParser {
     public static final BitSet FOLLOW_rule__Add__Group_10__1_in_rule__Add__Group_10__09001 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_51_in_rule__Add__Group_10__0__Impl9029 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__Add__Group_10__1__Impl_in_rule__Add__Group_10__19060 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Add__AutorsAssignment_10_1_in_rule__Add__Group_10__1__Impl9087 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Add__AuthorsAssignment_10_1_in_rule__Add__Group_10__1__Impl9087 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__AddUser__Group__0__Impl_in_rule__AddUser__Group__09121 = new BitSet(new long[]{0x0020000000000000L});
     public static final BitSet FOLLOW_rule__AddUser__Group__1_in_rule__AddUser__Group__09124 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_50_in_rule__AddUser__Group__0__Impl9152 = new BitSet(new long[]{0x0000000000000002L});
@@ -55959,7 +55959,7 @@ public class InternalLibraryParser extends AbstractInternalContentAssistParser {
     public static final BitSet FOLLOW_RULE_STRING_in_rule__Add__TitleAssignment_431997 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_RULE_YEAR_in_rule__Add__YearAssignment_632028 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleAuthor_in_rule__Add__AuthorsAssignment_932059 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleAuthor_in_rule__Add__AutorsAssignment_10_132090 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleAuthor_in_rule__Add__AuthorsAssignment_10_132090 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_RULE_STRING_in_rule__AddUser__FirstnameAssignment_232121 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_RULE_STRING_in_rule__AddUser__SecondnameAssignment_332152 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_RULE_YEAR_in_rule__AddUser__AgeAssignment_432183 = new BitSet(new long[]{0x0000000000000002L});

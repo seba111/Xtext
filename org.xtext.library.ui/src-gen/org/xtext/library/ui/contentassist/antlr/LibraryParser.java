@@ -238,7 +238,7 @@ public class LibraryParser extends AbstractContentAssistParser {
 					put(grammarAccess.getAddAccess().getTitleAssignment_4(), "rule__Add__TitleAssignment_4");
 					put(grammarAccess.getAddAccess().getYearAssignment_6(), "rule__Add__YearAssignment_6");
 					put(grammarAccess.getAddAccess().getAuthorsAssignment_9(), "rule__Add__AuthorsAssignment_9");
-					put(grammarAccess.getAddAccess().getAutorsAssignment_10_1(), "rule__Add__AutorsAssignment_10_1");
+					put(grammarAccess.getAddAccess().getAuthorsAssignment_10_1(), "rule__Add__AuthorsAssignment_10_1");
 					put(grammarAccess.getAddUserAccess().getFirstnameAssignment_2(), "rule__AddUser__FirstnameAssignment_2");
 					put(grammarAccess.getAddUserAccess().getSecondnameAssignment_3(), "rule__AddUser__SecondnameAssignment_3");
 					put(grammarAccess.getAddUserAccess().getAgeAssignment_4(), "rule__AddUser__AgeAssignment_4");

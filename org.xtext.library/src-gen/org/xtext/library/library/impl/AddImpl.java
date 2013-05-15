@@ -32,7 +32,6 @@ import org.xtext.library.library.LibraryPackage;
  *   <li>{@link org.xtext.library.library.impl.AddImpl#getTitle <em>Title</em>}</li>
  *   <li>{@link org.xtext.library.library.impl.AddImpl#getYear <em>Year</em>}</li>
  *   <li>{@link org.xtext.library.library.impl.AddImpl#getAuthors <em>Authors</em>}</li>
- *   <li>{@link org.xtext.library.library.impl.AddImpl#getAutors <em>Autors</em>}</li>
  * </ul>
  * </p>
  *
@@ -109,16 +108,6 @@ public class AddImpl extends CommandImpl implements Add
    * @ordered
    */
   protected EList<Author> authors;
-
-  /**
-   * The cached value of the '{@link #getAutors() <em>Autors</em>}' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getAutors()
-   * @generated
-   * @ordered
-   */
-  protected EList<Author> autors;
 
   /**
    * <!-- begin-user-doc -->
@@ -229,20 +218,6 @@ public class AddImpl extends CommandImpl implements Add
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Author> getAutors()
-  {
-    if (autors == null)
-    {
-      autors = new EObjectContainmentEList<Author>(Author.class, this, LibraryPackage.ADD__AUTORS);
-    }
-    return autors;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
@@ -250,8 +225,6 @@ public class AddImpl extends CommandImpl implements Add
     {
       case LibraryPackage.ADD__AUTHORS:
         return ((InternalEList<?>)getAuthors()).basicRemove(otherEnd, msgs);
-      case LibraryPackage.ADD__AUTORS:
-        return ((InternalEList<?>)getAutors()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -274,8 +247,6 @@ public class AddImpl extends CommandImpl implements Add
         return getYear();
       case LibraryPackage.ADD__AUTHORS:
         return getAuthors();
-      case LibraryPackage.ADD__AUTORS:
-        return getAutors();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -304,10 +275,6 @@ public class AddImpl extends CommandImpl implements Add
         getAuthors().clear();
         getAuthors().addAll((Collection<? extends Author>)newValue);
         return;
-      case LibraryPackage.ADD__AUTORS:
-        getAutors().clear();
-        getAutors().addAll((Collection<? extends Author>)newValue);
-        return;
     }
     super.eSet(featureID, newValue);
   }
@@ -334,9 +301,6 @@ public class AddImpl extends CommandImpl implements Add
       case LibraryPackage.ADD__AUTHORS:
         getAuthors().clear();
         return;
-      case LibraryPackage.ADD__AUTORS:
-        getAutors().clear();
-        return;
     }
     super.eUnset(featureID);
   }
@@ -359,8 +323,6 @@ public class AddImpl extends CommandImpl implements Add
         return YEAR_EDEFAULT == null ? year != null : !YEAR_EDEFAULT.equals(year);
       case LibraryPackage.ADD__AUTHORS:
         return authors != null && !authors.isEmpty();
-      case LibraryPackage.ADD__AUTORS:
-        return autors != null && !autors.isEmpty();
     }
     return super.eIsSet(featureID);
   }

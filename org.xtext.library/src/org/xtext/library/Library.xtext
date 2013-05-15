@@ -35,7 +35,7 @@ Lend:
 
 Add:
 	'Add' 'book' isbn=ISBN ',' title=STRING ',' year=YEAR
-	'written' 'by' authors+=Author (',' autors+=Author)* 
+	'written' 'by' authors+=Author (',' authors+=Author)* 
 ;
 AddUser:
 	'Add' 'user' firstname=STRING secondname=STRING age=YEAR
